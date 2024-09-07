@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/alex/Repos/turing-machine-sdl",
+  "command": "/usr/bin/c++  -isystem /usr/include/SDL2  -o CMakeFiles/sdl-turing-machine.dir/main.cpp.o -c /home/alex/Repos/turing-machine-sdl/main.cpp",
+  "file": "/home/alex/Repos/turing-machine-sdl/main.cpp"
+},
+{
+  "directory": "/home/alex/Repos/turing-machine-sdl",
+  "command": "/usr/bin/c++  -isystem /usr/include/SDL2  -o CMakeFiles/sdl-turing-machine.dir/turing_machine.cpp.o -c /home/alex/Repos/turing-machine-sdl/turing_machine.cpp",
+  "file": "/home/alex/Repos/turing-machine-sdl/turing_machine.cpp"
+}
+]

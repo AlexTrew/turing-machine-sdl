@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic "CMakeFiles/ascii-trains.dir/main.cpp.o" "CMakeFiles/ascii-trains.dir/rendered-glyph.cpp.o" -o ascii-trains  -lsdl2 
