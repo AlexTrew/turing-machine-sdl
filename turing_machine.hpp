@@ -2,21 +2,27 @@
 #define TURINGMACHINE
 #include <vector>
 
-struct TuringMachineMemoryState{
-  std::vector<char> state;
-};
 
 enum class MoveDirection{
   LEFT,
   RIGHT
 };
 
-class TuringMachineFSMState{
-  int move_head_index(int head_index, const MoveDirection& move_direction);
-  void write(TuringMachineMemoryState& tape_state, int head_index, const char write_value);
+struct UpdateInstruction{
+  MoveDirection direction;
+  char new_value;
+
+  UpdateInstruction(MoveDirection direction, int new_value);
+};
+
+class TuringMachine{
+
+  const UpdateInstruction* get_update_instruction(const std::vector<char>& tm_state, int head_index);
+  int get_updated_head_index(int head_index, const MoveDirection& move_direction);
+  void update_state_in_place(std::vector<char>& tape_state, int head_index, const char write_value);
 
 public:
-  int state_transition(TuringMachineMemoryState& tape_state, int head_index);
+  int process(std::vector<char>& tm_state, int head_position);
 };
 
 #endif
