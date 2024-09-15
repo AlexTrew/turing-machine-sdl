@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -isystem /usr/include/SDL2
+CXX_INCLUDES = -I/usr/include/libpng16 -I/usr/include/x86_64-linux-gnu, -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -isystem /usr/include/SDL2
 
 CXX_FLAGS = 
 

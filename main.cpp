@@ -14,14 +14,21 @@
 #include <vector>
 
 #include "rendered_glyph.hpp"
-#include "tile_renderer.hpp"
 #include "turing_machine.hpp"
 
 const int X_RES = 1920;
 const int Y_RES = 1080;
 
+const int TILE_WIDTH = 20;
+const int TILE_HEIGHT = 20;
+
+SDL_Colour SDL_COLOUR_BLACK{0, 0, 0};
+
+SDL_Colour SDL_COLOUR_WHITE{255, 255, 255};
+
 void close(SDL_Window* window, SDL_Renderer* renderer) {
   // close sdl image and sdl ttf
+  clear_glyph_texture_cache();
   IMG_Quit();
   TTF_Quit();
 
@@ -41,19 +48,23 @@ void create_tile(SDL_Renderer* renderer, int x, int y, int w, int h) {
   SDL_RenderSetViewport(renderer, &new_viewport);
 }
 
+void display_glyph_at_grid_position(int x, int y, SDL_Texture* glyph_texture,
+                                    SDL_Renderer* renderer) {
+
+  SDL_Rect tile = {x * TILE_WIDTH, y * TILE_HEIGHT, TILE_WIDTH, TILE_HEIGHT};
+  SDL_RenderCopy(renderer, glyph_texture, nullptr, &tile);
+}
+
 void run_event_loop(SDL_Window* window, SDL_Renderer* renderer) {
 
   //turing machine utils
-  std::vector<char> tm_state = std::vector<char>(50, '0');
+  std::vector<char> tm_state = std::vector<char>(100, '0');
   TuringMachine* turing_machine = new TuringMachine();
-  RenderedGlyphBuilder* glyph_builder = new RenderedGlyphBuilder();
-  TileRenderer* tile_renderer = new TileRenderer(renderer);
   int head_position = 30;
 
-  const char* head_glyph_char = "H";
-  SDL_Texture* head_glyph =
-      glyph_builder->run(renderer, head_glyph_char, {0, 0, 0});
+  TTF_Font* font = TTF_OpenFont("Ubuntu-Regular.ttf", 12);
 
+  // graphical utilities
   // event loop state
   bool quit = false;
   SDL_Event e;
@@ -66,40 +77,29 @@ void run_event_loop(SDL_Window* window, SDL_Renderer* renderer) {
       }
 
       head_position = turing_machine->process(tm_state, head_position);
-      std::vector<SDL_Texture*> tm_state_glyphs;
 
       //draw the state on screen
       SDL_RenderClear(renderer);
 
       for (int i = 0; i < tm_state.size(); ++i) {
-        // i know this is nowhere near a good way of doing this.
-        //make the glyphs once, then load them. destroy them after the loop (duh)
+        // draw the tape
+        SDL_Texture* glyph_texture = get_glyph_texture(
+            renderer, font, tm_state[i], &SDL_COLOUR_BLACK, &SDL_COLOUR_WHITE);
+        display_glyph_at_grid_position(i, 5, glyph_texture, renderer);
 
-        // jesus christ
-        char glyph_char_buff[2];
-        memcpy(glyph_char_buff, &tm_state[i], 1);
-        glyph_char_buff[1] = '\0';
-
-        SDL_Texture* glyph =
-            glyph_builder->run(renderer, glyph_char_buff, {0, 0, 0});
-        tm_state_glyphs.push_back(glyph);
-        tile_renderer->run(i * 50, 500, 50, 70, glyph);
+        //draw the 'H' for head
       }
+      SDL_Texture* head_glyph_texture = get_glyph_texture(
+          renderer, font, 'H', &SDL_COLOUR_BLACK, &SDL_COLOUR_WHITE);
+      display_glyph_at_grid_position(head_position, 6, head_glyph_texture,
+                                     renderer);
 
-      // draw the 'H' for head
-      tile_renderer->run(head_position * 50, 570, 50, 70, head_glyph);
       SDL_RenderPresent(renderer);
-
-      //free the textures
-      for (int i = 0; i < tm_state_glyphs.size(); ++i) {
-        SDL_DestroyTexture(tm_state_glyphs[i]);
-      }
     }
   }
 
   delete turing_machine;
-  delete glyph_builder;
-  delete tile_renderer;
+  TTF_CloseFont(font);
 }
 
 int main(int argc, char** argv) {

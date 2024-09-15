@@ -153,6 +153,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+rendered_glyph.o: rendered_glyph.cpp.o
+.PHONY : rendered_glyph.o
+
+# target to build an object file
+rendered_glyph.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.o
+.PHONY : rendered_glyph.cpp.o
+
+rendered_glyph.i: rendered_glyph.cpp.i
+.PHONY : rendered_glyph.i
+
+# target to preprocess a source file
+rendered_glyph.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.i
+.PHONY : rendered_glyph.cpp.i
+
+rendered_glyph.s: rendered_glyph.cpp.s
+.PHONY : rendered_glyph.s
+
+# target to generate assembly for a file
+rendered_glyph.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.s
+.PHONY : rendered_glyph.cpp.s
+
 turing_machine.o: turing_machine.cpp.o
 .PHONY : turing_machine.o
 
@@ -189,6 +213,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... rendered_glyph.o"
+	@echo "... rendered_glyph.i"
+	@echo "... rendered_glyph.s"
 	@echo "... turing_machine.o"
 	@echo "... turing_machine.i"
 	@echo "... turing_machine.s"

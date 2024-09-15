@@ -6,7 +6,7 @@ find_package(SDL2 REQUIRED)
 
 include_directories(${SDL2_INCLUDE_DIRS})
 
-add_executable(sdl-turing-machine main.cpp turing_machine.hpp turing_machine.cpp rendered-glyph.hpp rendered-glyph.cpp tile_renderer.hpp tile_renderer.cpp )
+add_executable(sdl-turing-machine main.cpp turing_machine.hpp turing_machine.cpp rendered_glyph.hpp rendered_glyph.cpp)
 
 INCLUDE(FindPkgConfig)
 
