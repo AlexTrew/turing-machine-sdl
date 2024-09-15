@@ -26,9 +26,14 @@ SDL_Colour SDL_COLOUR_BLACK{0, 0, 0};
 
 SDL_Colour SDL_COLOUR_WHITE{255, 255, 255};
 
+SDL_Colour SDL_COLOUR_GREY{220, 220, 220};
+
 void close(SDL_Window* window, SDL_Renderer* renderer) {
-  // close sdl image and sdl ttf
+
+  //clear the texture cache
   clear_glyph_texture_cache();
+
+  // close sdl image and sdl ttf
   IMG_Quit();
   TTF_Quit();
 
@@ -36,16 +41,6 @@ void close(SDL_Window* window, SDL_Renderer* renderer) {
   SDL_DestroyRenderer(renderer);
   SDL_DestroyWindow(window);
   SDL_Quit();
-}
-
-void create_tile(SDL_Renderer* renderer, int x, int y, int w, int h) {
-  SDL_Rect new_viewport;
-  new_viewport.x = x;
-  new_viewport.y = y;
-  new_viewport.w = w;
-  new_viewport.h = h;
-
-  SDL_RenderSetViewport(renderer, &new_viewport);
 }
 
 void display_glyph_at_grid_position(int x, int y, SDL_Texture* glyph_texture,
@@ -58,7 +53,7 @@ void display_glyph_at_grid_position(int x, int y, SDL_Texture* glyph_texture,
 void run_event_loop(SDL_Window* window, SDL_Renderer* renderer) {
 
   //turing machine utils
-  std::vector<char> tm_state = std::vector<char>(100, '0');
+  std::vector<char> tm_state = std::vector<char>(300, '0');
   TuringMachine* turing_machine = new TuringMachine();
   int head_position = 30;
 
@@ -82,16 +77,17 @@ void run_event_loop(SDL_Window* window, SDL_Renderer* renderer) {
       SDL_RenderClear(renderer);
 
       for (int i = 0; i < tm_state.size(); ++i) {
+
         // draw the tape
-        SDL_Texture* glyph_texture = get_glyph_texture(
+        SDL_Texture* tape_glyph_texture = get_glyph_texture(
             renderer, font, tm_state[i], &SDL_COLOUR_BLACK, &SDL_COLOUR_WHITE);
-        display_glyph_at_grid_position(i, 5, glyph_texture, renderer);
+        display_glyph_at_grid_position(i, 30, tape_glyph_texture, renderer);
 
         //draw the 'H' for head
       }
       SDL_Texture* head_glyph_texture = get_glyph_texture(
           renderer, font, 'H', &SDL_COLOUR_BLACK, &SDL_COLOUR_WHITE);
-      display_glyph_at_grid_position(head_position, 6, head_glyph_texture,
+      display_glyph_at_grid_position(head_position, 31, head_glyph_texture,
                                      renderer);
 
       SDL_RenderPresent(renderer);

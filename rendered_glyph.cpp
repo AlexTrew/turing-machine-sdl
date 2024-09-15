@@ -45,6 +45,6 @@ SDL_Texture* get_glyph_texture(SDL_Renderer* renderer, TTF_Font* font,
 void clear_glyph_texture_cache() {
   for (auto x : glyph_texture_cache) {
     SDL_DestroyTexture(x.second);
-    glyph_texture_cache.clear();
   }
+  glyph_texture_cache.clear();
 }
