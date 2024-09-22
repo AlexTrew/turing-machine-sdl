@@ -265,6 +265,8 @@ CMakeFiles/sdl-turing-machine.dir/main.cpp.o: main.cpp \
   /usr/include/SDL2/SDL_events.h \
   /usr/include/SDL2/SDL_pixels.h \
   /usr/include/SDL2/SDL_render.h \
+  /usr/include/SDL2/SDL_stdinc.h \
+  /usr/include/SDL2/SDL_timer.h \
   /usr/include/c++/12/algorithm \
   /usr/include/c++/12/bits/stl_algo.h \
   /usr/include/c++/12/bits/algorithmfwd.h \

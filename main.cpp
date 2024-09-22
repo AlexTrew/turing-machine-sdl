@@ -4,6 +4,8 @@
 #include <SDL_events.h>
 #include <SDL_pixels.h>
 #include <SDL_render.h>
+#include <SDL_stdinc.h>
+#include <SDL_timer.h>
 #include <algorithm>
 #include <cstdint>
 #include <cstring>
@@ -48,80 +50,114 @@ void close(SDL_Window* window, SDL_Renderer* renderer) {
   SDL_Quit();
 }
 
-void display_text_at_grid_position(int x, int y, int grid_w, int grid_h,
-                                   std::string text_to_display, TTF_Font* font,
-                                   SDL_Colour colour, SDL_Renderer* renderer) {
+struct ScreenPosition {
+  int x;
+  int y;
+};
+
+std::unique_ptr<ScreenPosition> get_screen_position(int global_x_position,
+                                                    int global_y_position) {
+  std::unique_ptr<ScreenPosition> screen_position_ptr =
+      std::unique_ptr<ScreenPosition>(new ScreenPosition());
+  screen_position_ptr->x = global_x_position % NO_OF_TILES_X;
+  screen_position_ptr->y = global_y_position % NO_OF_TILES_Y;
+  return screen_position_ptr;
+}
+
+void display_text_at_screen_position(
+    std::unique_ptr<ScreenPosition> screen_position_ptr, int grid_w, int grid_h,
+    std::string text_to_display, TTF_Font* font, SDL_Colour colour,
+    SDL_Renderer* renderer) {
   SDL_Texture* text_texture =
       get_accelerated_text_texture(renderer, font, text_to_display, &colour);
 
-  SDL_Rect text_box = {x * TILE_WIDTH, y * TILE_HEIGHT, grid_w * TILE_WIDTH,
-                       grid_h * TILE_HEIGHT};
+  SDL_Rect text_box = {screen_position_ptr->x * TILE_WIDTH,
+                       screen_position_ptr->y * TILE_HEIGHT,
+                       grid_w * TILE_WIDTH, grid_h * TILE_HEIGHT};
   SDL_RenderCopy(renderer, text_texture, nullptr, &text_box);
 }
 
-void display_glyph_at_grid_position(int x, int y, SDL_Texture* glyph_texture,
-                                    SDL_Renderer* renderer) {
+void display_glyph_at_screen_position(
+    std::unique_ptr<ScreenPosition> screen_position_ptr,
+    SDL_Texture* glyph_texture, SDL_Renderer* renderer) {
 
-  SDL_Rect tile = {x * TILE_WIDTH, y * TILE_HEIGHT, TILE_WIDTH, TILE_HEIGHT};
+  SDL_Rect tile = {screen_position_ptr->x * TILE_WIDTH,
+                   screen_position_ptr->y * TILE_HEIGHT, TILE_WIDTH,
+                   TILE_HEIGHT};
   SDL_RenderCopy(renderer, glyph_texture, nullptr, &tile);
 }
 
 void run_event_loop(SDL_Window* window, SDL_Renderer* renderer) {
 
+  Uint64 start_time = SDL_GetTicks64();
+
   //turing machine utils
-  int tape_length = 10000;
+  int tape_length = 100000000;
   std::vector<char> tm_state = std::vector<char>(tape_length, '0');
   TuringMachine* turing_machine = new TuringMachine();
   int head_position = 10;
 
   TTF_Font* font = TTF_OpenFont("Ubuntu-Regular.ttf", 12);
 
-  // graphical utilities
   // event loop state
   bool quit = false;
   SDL_Event e;
 
+  Uint64 loop_run_time = 0;
+  Uint64 frames = 0;
+
+  // draw the title once
+
   while (!quit) {
+    ++frames;
+    loop_run_time = SDL_GetTicks64() - start_time;
     while (SDL_PollEvent(&e) != 0) {
       //user requests quit
       if (e.type == SDL_QUIT) {
         quit = true;
       }
-
-      // get the updated state of the turing machine.
-      head_position = turing_machine->process(tm_state, head_position);
-
-      //render the state to the screen
-
-      int window_start_index = head_position / NO_OF_TILES_X;
-      std::string window_start_index_str = std::to_string(window_start_index);
-
-      SDL_RenderClear(renderer);
-
-      // draw lowest z layer
-      for (int i = window_start_index;
-           i <
-           std::min(window_start_index + NO_OF_TILES_X, int(tm_state.size()));
-           ++i) {
-
-        SDL_Texture* tape_glyph_texture = get_accelerated_glyph_texture(
-            renderer, font, tm_state[i], &SDL_COLOUR_BLACK);
-        display_glyph_at_grid_position(i, 30, tape_glyph_texture, renderer);
-
-        //draw the 'H' for head
-      }
-      SDL_Texture* head_glyph_texture =
-          get_accelerated_glyph_texture(renderer, font, 'H', &SDL_COLOUR_BLACK);
-      display_glyph_at_grid_position(head_position, 31, head_glyph_texture,
-                                     renderer);
-
-      // draw index text
-      display_text_at_grid_position(0, 29, window_start_index_str.size(), 1,
-                                    window_start_index_str, font,
-                                    SDL_COLOUR_GREY, renderer);
-
-      SDL_RenderPresent(renderer);
     }
+
+    // get the updated state of the turing machine.
+    head_position = turing_machine->process(tm_state, head_position);
+
+    //render the state to the screen
+
+    int window_start_index = head_position - (head_position % NO_OF_TILES_X);
+    std::string window_start_index_str = std::to_string(window_start_index);
+
+    SDL_RenderClear(renderer);
+
+    // draw the glyphs of the tape
+    for (int i = window_start_index;
+         i < std::min(window_start_index + NO_OF_TILES_X, int(tm_state.size()));
+         ++i) {
+
+      SDL_Texture* tape_glyph_texture = get_accelerated_glyph_texture(
+          renderer, font, tm_state[i], &SDL_COLOUR_BLACK);
+      display_glyph_at_screen_position(get_screen_position(i, 10),
+                                       tape_glyph_texture, renderer);
+
+      //draw the 'H' for head
+    }
+    SDL_Texture* head_glyph_texture =
+        get_accelerated_glyph_texture(renderer, font, 'H', &SDL_COLOUR_BLACK);
+    display_glyph_at_screen_position(get_screen_position(head_position, 11),
+                                     head_glyph_texture, renderer);
+
+    // draw index info
+    display_text_at_screen_position(get_screen_position(0, 8), 4, 1, "index",
+                                    font, SDL_COLOUR_GREY, renderer);
+    display_text_at_screen_position(
+        get_screen_position(0, 9), window_start_index_str.size(), 1,
+        window_start_index_str, font, SDL_COLOUR_GREY, renderer);
+
+    display_text_at_screen_position(
+        get_screen_position(NO_OF_TILES_X / 2 - 10, 2), 15, 1,
+        "Alex's Turing machine", font, SDL_COLOUR_BLACK, renderer);
+
+    SDL_RenderPresent(renderer);
+    SDL_Delay(5);
   }
 
   delete turing_machine;
