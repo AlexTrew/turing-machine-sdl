@@ -4,6 +4,7 @@
 #include <SDL_events.h>
 #include <SDL_pixels.h>
 #include <SDL_render.h>
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <iostream>
@@ -13,14 +14,17 @@
 #include <string>
 #include <vector>
 
-#include "rendered_glyph.hpp"
+#include "texture_builder.hpp"
 #include "turing_machine.hpp"
 
 const int X_RES = 1920;
-const int Y_RES = 1080;
+const int Y_RES = 1280;
 
-const int TILE_WIDTH = 20;
-const int TILE_HEIGHT = 20;
+const int NO_OF_TILES_X = 64;
+const int NO_OF_TILES_Y = 48;
+
+const int TILE_WIDTH = X_RES / NO_OF_TILES_X;
+const int TILE_HEIGHT = Y_RES / NO_OF_TILES_Y;
 
 SDL_Colour SDL_COLOUR_BLACK{0, 0, 0};
 
@@ -31,6 +35,7 @@ SDL_Colour SDL_COLOUR_GREY{220, 220, 220};
 void close(SDL_Window* window, SDL_Renderer* renderer) {
 
   //clear the texture cache
+  clear_glyph_texture_cache();
   clear_glyph_texture_cache();
 
   // close sdl image and sdl ttf
@@ -43,6 +48,17 @@ void close(SDL_Window* window, SDL_Renderer* renderer) {
   SDL_Quit();
 }
 
+void display_text_at_grid_position(int x, int y, int grid_w, int grid_h,
+                                   std::string text_to_display, TTF_Font* font,
+                                   SDL_Colour colour, SDL_Renderer* renderer) {
+  SDL_Texture* text_texture =
+      get_accelerated_text_texture(renderer, font, text_to_display, &colour);
+
+  SDL_Rect text_box = {x * TILE_WIDTH, y * TILE_HEIGHT, grid_w * TILE_WIDTH,
+                       grid_h * TILE_HEIGHT};
+  SDL_RenderCopy(renderer, text_texture, nullptr, &text_box);
+}
+
 void display_glyph_at_grid_position(int x, int y, SDL_Texture* glyph_texture,
                                     SDL_Renderer* renderer) {
 
@@ -53,9 +69,10 @@ void display_glyph_at_grid_position(int x, int y, SDL_Texture* glyph_texture,
 void run_event_loop(SDL_Window* window, SDL_Renderer* renderer) {
 
   //turing machine utils
-  std::vector<char> tm_state = std::vector<char>(300, '0');
+  int tape_length = 10000;
+  std::vector<char> tm_state = std::vector<char>(tape_length, '0');
   TuringMachine* turing_machine = new TuringMachine();
-  int head_position = 30;
+  int head_position = 10;
 
   TTF_Font* font = TTF_OpenFont("Ubuntu-Regular.ttf", 12);
 
@@ -71,24 +88,37 @@ void run_event_loop(SDL_Window* window, SDL_Renderer* renderer) {
         quit = true;
       }
 
+      // get the updated state of the turing machine.
       head_position = turing_machine->process(tm_state, head_position);
 
-      //draw the state on screen
+      //render the state to the screen
+
+      int window_start_index = head_position / NO_OF_TILES_X;
+      std::string window_start_index_str = std::to_string(window_start_index);
+
       SDL_RenderClear(renderer);
 
-      for (int i = 0; i < tm_state.size(); ++i) {
+      // draw lowest z layer
+      for (int i = window_start_index;
+           i <
+           std::min(window_start_index + NO_OF_TILES_X, int(tm_state.size()));
+           ++i) {
 
-        // draw the tape
-        SDL_Texture* tape_glyph_texture = get_glyph_texture(
-            renderer, font, tm_state[i], &SDL_COLOUR_BLACK, &SDL_COLOUR_WHITE);
+        SDL_Texture* tape_glyph_texture = get_accelerated_glyph_texture(
+            renderer, font, tm_state[i], &SDL_COLOUR_BLACK);
         display_glyph_at_grid_position(i, 30, tape_glyph_texture, renderer);
 
         //draw the 'H' for head
       }
-      SDL_Texture* head_glyph_texture = get_glyph_texture(
-          renderer, font, 'H', &SDL_COLOUR_BLACK, &SDL_COLOUR_WHITE);
+      SDL_Texture* head_glyph_texture =
+          get_accelerated_glyph_texture(renderer, font, 'H', &SDL_COLOUR_BLACK);
       display_glyph_at_grid_position(head_position, 31, head_glyph_texture,
                                      renderer);
+
+      // draw index text
+      display_text_at_grid_position(0, 29, window_start_index_str.size(), 1,
+                                    window_start_index_str, font,
+                                    SDL_COLOUR_GREY, renderer);
 
       SDL_RenderPresent(renderer);
     }

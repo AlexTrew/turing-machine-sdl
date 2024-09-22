@@ -9,7 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/alex/Repos/turing-machine-sdl/main.cpp" "CMakeFiles/sdl-turing-machine.dir/main.cpp.o" "gcc" "CMakeFiles/sdl-turing-machine.dir/main.cpp.o.d"
-  "/home/alex/Repos/turing-machine-sdl/rendered_glyph.cpp" "CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.o" "gcc" "CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.o.d"
+  "/home/alex/Repos/turing-machine-sdl/texture_builder.cpp" "CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.o" "gcc" "CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.o.d"
   "/home/alex/Repos/turing-machine-sdl/turing_machine.cpp" "CMakeFiles/sdl-turing-machine.dir/turing_machine.cpp.o" "gcc" "CMakeFiles/sdl-turing-machine.dir/turing_machine.cpp.o.d"
   )
 

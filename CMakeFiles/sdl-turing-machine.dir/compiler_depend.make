@@ -265,6 +265,18 @@ CMakeFiles/sdl-turing-machine.dir/main.cpp.o: main.cpp \
   /usr/include/SDL2/SDL_events.h \
   /usr/include/SDL2/SDL_pixels.h \
   /usr/include/SDL2/SDL_render.h \
+  /usr/include/c++/12/algorithm \
+  /usr/include/c++/12/bits/stl_algo.h \
+  /usr/include/c++/12/bits/algorithmfwd.h \
+  /usr/include/c++/12/initializer_list \
+  /usr/include/c++/12/bits/stl_heap.h \
+  /usr/include/c++/12/bits/stl_tempbuf.h \
+  /usr/include/c++/12/bits/stl_construct.h \
+  /usr/include/c++/12/new \
+  /usr/include/c++/12/bits/exception.h \
+  /usr/include/c++/12/bits/uniform_int_dist.h \
+  /usr/include/c++/12/pstl/glue_algorithm_defs.h \
+  /usr/include/c++/12/pstl/execution_defs.h \
   /usr/include/c++/12/cstdint \
   /usr/include/c++/12/cstring \
   /usr/include/c++/12/iostream \
@@ -276,12 +288,10 @@ CMakeFiles/sdl-turing-machine.dir/main.cpp.o: main.cpp \
   /usr/include/c++/12/bits/postypes.h \
   /usr/include/c++/12/cwchar \
   /usr/include/c++/12/exception \
-  /usr/include/c++/12/bits/exception.h \
   /usr/include/c++/12/bits/exception_ptr.h \
   /usr/include/c++/12/bits/cxxabi_init_exception.h \
   /usr/include/c++/12/typeinfo \
   /usr/include/c++/12/bits/hash_bytes.h \
-  /usr/include/c++/12/new \
   /usr/include/c++/12/bits/nested_exception.h \
   /usr/include/c++/12/bits/char_traits.h \
   /usr/include/c++/12/bits/localefwd.h \
@@ -321,11 +331,9 @@ CMakeFiles/sdl-turing-machine.dir/main.cpp.o: main.cpp \
   /usr/include/c++/12/bits/refwrap.h \
   /usr/include/c++/12/bits/invoke.h \
   /usr/include/c++/12/bits/range_access.h \
-  /usr/include/c++/12/initializer_list \
   /usr/include/c++/12/bits/basic_string.h \
   /usr/include/c++/12/ext/alloc_traits.h \
   /usr/include/c++/12/bits/alloc_traits.h \
-  /usr/include/c++/12/bits/stl_construct.h \
   /usr/include/c++/12/string_view \
   /usr/include/c++/12/bits/functional_hash.h \
   /usr/include/c++/12/bits/string_view.tcc \
@@ -364,7 +372,6 @@ CMakeFiles/sdl-turing-machine.dir/main.cpp.o: main.cpp \
   /usr/include/c++/12/bits/stream_iterator.h \
   /usr/include/c++/12/memory \
   /usr/include/c++/12/bits/stl_uninitialized.h \
-  /usr/include/c++/12/bits/stl_tempbuf.h \
   /usr/include/c++/12/bits/stl_raw_storage_iter.h \
   /usr/include/c++/12/bits/align.h \
   /usr/include/c++/12/bit \
@@ -381,19 +388,16 @@ CMakeFiles/sdl-turing-machine.dir/main.cpp.o: main.cpp \
   /usr/include/c++/12/bits/atomic_lockfree_defines.h \
   /usr/include/c++/12/backward/auto_ptr.h \
   /usr/include/c++/12/pstl/glue_memory_defs.h \
-  /usr/include/c++/12/pstl/execution_defs.h \
   /usr/include/c++/12/vector \
   /usr/include/c++/12/bits/stl_vector.h \
   /usr/include/c++/12/bits/stl_bvector.h \
   /usr/include/c++/12/bits/vector.tcc \
-  rendered_glyph.hpp \
+  texture_builder.hpp \
   turing_machine.hpp
 
-CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.o: rendered_glyph.cpp \
+CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.o: texture_builder.cpp \
   /usr/include/stdc-predef.h \
-  rendered_glyph.hpp \
-  /usr/include/SDL2/SDL.h \
-  /usr/include/SDL2/SDL_main.h \
+  /usr/include/SDL2/SDL_render.h \
   /usr/include/SDL2/SDL_stdinc.h \
   /usr/include/SDL2/SDL_config.h \
   /usr/include/x86_64-linux-gnu/SDL2/_real_SDL_config.h \
@@ -518,15 +522,25 @@ CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.o: rendered_glyph.cpp \
   /usr/include/c++/12/tr1/poly_laguerre.tcc \
   /usr/include/c++/12/tr1/riemann_zeta.tcc \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/float.h \
+  /usr/include/SDL2/SDL_rect.h \
+  /usr/include/SDL2/SDL_error.h \
+  /usr/include/SDL2/SDL_pixels.h \
+  /usr/include/SDL2/SDL_endian.h \
+  /usr/include/SDL2/SDL_rwops.h \
+  /usr/include/SDL2/SDL_video.h \
+  /usr/include/SDL2/SDL_surface.h \
+  /usr/include/SDL2/SDL_blendmode.h \
+  /usr/include/SDL2/SDL_stdinc.h \
+  /usr/include/SDL2/SDL_surface.h \
+  /usr/include/SDL2/SDL_ttf.h \
+  /usr/include/SDL2/SDL.h \
+  /usr/include/SDL2/SDL_main.h \
   /usr/include/SDL2/SDL_assert.h \
   /usr/include/SDL2/SDL_atomic.h \
   /usr/include/SDL2/SDL_platform.h \
   /usr/include/SDL2/SDL_audio.h \
-  /usr/include/SDL2/SDL_error.h \
-  /usr/include/SDL2/SDL_endian.h \
   /usr/include/SDL2/SDL_mutex.h \
   /usr/include/SDL2/SDL_thread.h \
-  /usr/include/SDL2/SDL_rwops.h \
   /usr/include/SDL2/SDL_clipboard.h \
   /usr/include/SDL2/SDL_cpuinfo.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/immintrin.h \
@@ -616,11 +630,6 @@ CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.o: rendered_glyph.cpp \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/prfchwintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/keylockerintrin.h \
   /usr/include/SDL2/SDL_events.h \
-  /usr/include/SDL2/SDL_video.h \
-  /usr/include/SDL2/SDL_pixels.h \
-  /usr/include/SDL2/SDL_rect.h \
-  /usr/include/SDL2/SDL_surface.h \
-  /usr/include/SDL2/SDL_blendmode.h \
   /usr/include/SDL2/SDL_keyboard.h \
   /usr/include/SDL2/SDL_keycode.h \
   /usr/include/SDL2/SDL_scancode.h \
@@ -648,38 +657,68 @@ CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.o: rendered_glyph.cpp \
   /usr/include/SDL2/SDL_version.h \
   /usr/include/SDL2/SDL_locale.h \
   /usr/include/SDL2/SDL_misc.h \
-  /usr/include/SDL2/SDL_ttf.h \
-  /usr/include/SDL2/SDL.h \
-  /usr/include/SDL2/SDL_render.h \
-  /usr/include/SDL2/SDL_stdinc.h \
   /usr/include/c++/12/cassert \
   /usr/include/assert.h \
-  /usr/include/c++/12/unordered_map \
-  /usr/include/c++/12/initializer_list \
+  /usr/include/c++/12/string \
+  /usr/include/c++/12/bits/stringfwd.h \
+  /usr/include/c++/12/bits/memoryfwd.h \
+  /usr/include/c++/12/bits/char_traits.h \
+  /usr/include/c++/12/bits/postypes.h \
+  /usr/include/c++/12/cwchar \
+  /usr/include/c++/12/cstdint \
   /usr/include/c++/12/bits/allocator.h \
   /usr/include/x86_64-linux-gnu/c++/12/bits/c++allocator.h \
   /usr/include/c++/12/bits/new_allocator.h \
   /usr/include/c++/12/new \
   /usr/include/c++/12/bits/exception.h \
-  /usr/include/c++/12/bits/memoryfwd.h \
+  /usr/include/c++/12/bits/localefwd.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/c++locale.h \
+  /usr/include/c++/12/clocale \
+  /usr/include/locale.h \
+  /usr/include/x86_64-linux-gnu/bits/locale.h \
+  /usr/include/c++/12/iosfwd \
+  /usr/include/c++/12/cctype \
+  /usr/include/c++/12/bits/ostream_insert.h \
+  /usr/include/c++/12/bits/cxxabi_forced.h \
+  /usr/include/c++/12/bits/stl_function.h \
+  /usr/include/c++/12/backward/binders.h \
+  /usr/include/c++/12/bits/refwrap.h \
+  /usr/include/c++/12/bits/invoke.h \
+  /usr/include/c++/12/bits/range_access.h \
+  /usr/include/c++/12/initializer_list \
+  /usr/include/c++/12/bits/basic_string.h \
   /usr/include/c++/12/ext/alloc_traits.h \
   /usr/include/c++/12/bits/alloc_traits.h \
   /usr/include/c++/12/bits/stl_construct.h \
-  /usr/include/c++/12/ext/aligned_buffer.h \
-  /usr/include/c++/12/bits/stl_function.h \
-  /usr/include/c++/12/backward/binders.h \
+  /usr/include/c++/12/string_view \
   /usr/include/c++/12/bits/functional_hash.h \
   /usr/include/c++/12/bits/hash_bytes.h \
+  /usr/include/c++/12/bits/string_view.tcc \
+  /usr/include/c++/12/ext/string_conversions.h \
+  /usr/include/c++/12/cstdio \
+  /usr/include/c++/12/cerrno \
+  /usr/include/errno.h \
+  /usr/include/x86_64-linux-gnu/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
+  /usr/include/c++/12/bits/charconv.h \
+  /usr/include/c++/12/bits/basic_string.tcc \
+  /usr/include/c++/12/unordered_map \
+  /usr/include/c++/12/ext/aligned_buffer.h \
   /usr/include/c++/12/bits/hashtable.h \
   /usr/include/c++/12/bits/hashtable_policy.h \
   /usr/include/c++/12/tuple \
   /usr/include/c++/12/bits/uses_allocator.h \
-  /usr/include/c++/12/bits/invoke.h \
   /usr/include/c++/12/bits/enable_special_members.h \
   /usr/include/c++/12/bits/node_handle.h \
   /usr/include/c++/12/bits/unordered_map.h \
-  /usr/include/c++/12/bits/range_access.h \
-  /usr/include/c++/12/bits/erase_if.h
+  /usr/include/c++/12/bits/erase_if.h \
+  texture_builder.hpp \
+  /usr/include/SDL2/SDL.h \
+  /usr/include/SDL2/SDL_ttf.h
 
 CMakeFiles/sdl-turing-machine.dir/turing_machine.cpp.o: turing_machine.cpp \
   /usr/include/stdc-predef.h \
@@ -746,6 +785,8 @@ CMakeFiles/sdl-turing-machine.dir/turing_machine.cpp.o: turing_machine.cpp \
 
 turing_machine.hpp:
 
+texture_builder.hpp:
+
 /usr/include/c++/12/bits/stl_bvector.h:
 
 /usr/include/c++/12/bits/stl_vector.h:
@@ -802,15 +843,11 @@ turing_machine.hpp:
 
 /usr/include/c++/12/bits/functional_hash.h:
 
-/usr/include/c++/12/bits/stl_construct.h:
-
 /usr/include/c++/12/bits/alloc_traits.h:
 
 /usr/include/c++/12/ext/alloc_traits.h:
 
 /usr/include/c++/12/bits/basic_string.h:
-
-/usr/include/c++/12/initializer_list:
 
 /usr/include/c++/12/bits/range_access.h:
 
@@ -872,8 +909,6 @@ turing_machine.hpp:
 
 /usr/include/x86_64-linux-gnu/c++/12/bits/c++locale.h:
 
-/usr/include/c++/12/bits/localefwd.h:
-
 /usr/include/c++/12/bits/char_traits.h:
 
 /usr/include/c++/12/bits/allocated_ptr.h:
@@ -883,8 +918,6 @@ turing_machine.hpp:
 /usr/include/c++/12/bits/cxxabi_init_exception.h:
 
 /usr/include/c++/12/bits/exception_ptr.h:
-
-/usr/include/c++/12/bits/exception.h:
 
 /usr/include/c++/12/exception:
 
@@ -901,6 +934,20 @@ turing_machine.hpp:
 /usr/include/c++/12/ostream:
 
 /usr/include/c++/12/cstdint:
+
+/usr/include/c++/12/bits/localefwd.h:
+
+/usr/include/c++/12/pstl/glue_algorithm_defs.h:
+
+/usr/include/c++/12/bits/exception.h:
+
+/usr/include/c++/12/bits/stl_construct.h:
+
+/usr/include/c++/12/bits/stl_heap.h:
+
+/usr/include/c++/12/initializer_list:
+
+/usr/include/c++/12/bits/stl_algo.h:
 
 /usr/include/c++/12/bits/basic_ios.tcc:
 
@@ -987,6 +1034,8 @@ turing_machine.hpp:
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
+
+/usr/include/c++/12/bits/algorithmfwd.h:
 
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
@@ -1178,6 +1227,8 @@ main.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
 
+/usr/include/c++/12/bits/uniform_int_dist.h:
+
 /usr/include/c++/12/bits/ptr_traits.h:
 
 /usr/include/c++/12/bits/charconv.h:
@@ -1236,11 +1287,11 @@ main.cpp:
 
 /usr/lib/gcc/x86_64-linux-gnu/12/include/avx512vpopcntdqintrin.h:
 
-rendered_glyph.cpp:
-
 /usr/include/c++/12/bits/invoke.h:
 
 /usr/include/c++/12/bits/utility.h:
+
+/usr/include/c++/12/algorithm:
 
 /usr/lib/gcc/x86_64-linux-gnu/12/include/avx512pfintrin.h:
 
@@ -1360,8 +1411,6 @@ rendered_glyph.cpp:
 
 /usr/include/SDL2/SDL_guid.h:
 
-rendered_glyph.hpp:
-
 /usr/include/c++/12/bits/unique_ptr.h:
 
 /usr/include/c++/12/iterator:
@@ -1417,6 +1466,8 @@ rendered_glyph.hpp:
 /usr/lib/gcc/x86_64-linux-gnu/12/include/avx512vlintrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/12/include/avx512dqintrin.h:
+
+texture_builder.cpp:
 
 /usr/include/c++/12/type_traits:
 

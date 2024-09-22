@@ -153,29 +153,29 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-rendered_glyph.o: rendered_glyph.cpp.o
-.PHONY : rendered_glyph.o
+texture_builder.o: texture_builder.cpp.o
+.PHONY : texture_builder.o
 
 # target to build an object file
-rendered_glyph.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.o
-.PHONY : rendered_glyph.cpp.o
+texture_builder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.o
+.PHONY : texture_builder.cpp.o
 
-rendered_glyph.i: rendered_glyph.cpp.i
-.PHONY : rendered_glyph.i
+texture_builder.i: texture_builder.cpp.i
+.PHONY : texture_builder.i
 
 # target to preprocess a source file
-rendered_glyph.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.i
-.PHONY : rendered_glyph.cpp.i
+texture_builder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.i
+.PHONY : texture_builder.cpp.i
 
-rendered_glyph.s: rendered_glyph.cpp.s
-.PHONY : rendered_glyph.s
+texture_builder.s: texture_builder.cpp.s
+.PHONY : texture_builder.s
 
 # target to generate assembly for a file
-rendered_glyph.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.s
-.PHONY : rendered_glyph.cpp.s
+texture_builder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.s
+.PHONY : texture_builder.cpp.s
 
 turing_machine.o: turing_machine.cpp.o
 .PHONY : turing_machine.o
@@ -213,9 +213,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... rendered_glyph.o"
-	@echo "... rendered_glyph.i"
-	@echo "... rendered_glyph.s"
+	@echo "... texture_builder.o"
+	@echo "... texture_builder.i"
+	@echo "... texture_builder.s"
 	@echo "... turing_machine.o"
 	@echo "... turing_machine.i"
 	@echo "... turing_machine.s"

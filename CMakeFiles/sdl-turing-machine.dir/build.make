@@ -97,32 +97,32 @@ CMakeFiles/sdl-turing-machine.dir/turing_machine.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sdl-turing-machine.dir/turing_machine.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Repos/turing-machine-sdl/turing_machine.cpp -o CMakeFiles/sdl-turing-machine.dir/turing_machine.cpp.s
 
-CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.o: CMakeFiles/sdl-turing-machine.dir/flags.make
-CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.o: rendered_glyph.cpp
-CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.o: CMakeFiles/sdl-turing-machine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Repos/turing-machine-sdl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.o -MF CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.o.d -o CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.o -c /home/alex/Repos/turing-machine-sdl/rendered_glyph.cpp
+CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.o: CMakeFiles/sdl-turing-machine.dir/flags.make
+CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.o: texture_builder.cpp
+CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.o: CMakeFiles/sdl-turing-machine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Repos/turing-machine-sdl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.o -MF CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.o.d -o CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.o -c /home/alex/Repos/turing-machine-sdl/texture_builder.cpp
 
-CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Repos/turing-machine-sdl/rendered_glyph.cpp > CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.i
+CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Repos/turing-machine-sdl/texture_builder.cpp > CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.i
 
-CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Repos/turing-machine-sdl/rendered_glyph.cpp -o CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.s
+CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Repos/turing-machine-sdl/texture_builder.cpp -o CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.s
 
 # Object files for target sdl-turing-machine
 sdl__turing__machine_OBJECTS = \
 "CMakeFiles/sdl-turing-machine.dir/main.cpp.o" \
 "CMakeFiles/sdl-turing-machine.dir/turing_machine.cpp.o" \
-"CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.o"
+"CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.o"
 
 # External object files for target sdl-turing-machine
 sdl__turing__machine_EXTERNAL_OBJECTS =
 
 sdl-turing-machine: CMakeFiles/sdl-turing-machine.dir/main.cpp.o
 sdl-turing-machine: CMakeFiles/sdl-turing-machine.dir/turing_machine.cpp.o
-sdl-turing-machine: CMakeFiles/sdl-turing-machine.dir/rendered_glyph.cpp.o
+sdl-turing-machine: CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.o
 sdl-turing-machine: CMakeFiles/sdl-turing-machine.dir/build.make
 sdl-turing-machine: /usr/lib/x86_64-linux-gnu/libSDL2.so
 sdl-turing-machine: CMakeFiles/sdl-turing-machine.dir/link.txt
