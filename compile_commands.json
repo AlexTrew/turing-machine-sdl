@@ -13,5 +13,10 @@
   "directory": "/home/alex/Repos/turing-machine-sdl",
   "command": "/usr/bin/c++  -I/usr/include/libpng16 -I/usr/include/x86_64-linux-gnu, -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -isystem /usr/include/SDL2  -o CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.o -c /home/alex/Repos/turing-machine-sdl/texture_builder.cpp",
   "file": "/home/alex/Repos/turing-machine-sdl/texture_builder.cpp"
+},
+{
+  "directory": "/home/alex/Repos/turing-machine-sdl",
+  "command": "/usr/bin/c++  -I/usr/include/libpng16 -I/usr/include/x86_64-linux-gnu, -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -isystem /usr/include/SDL2  -o CMakeFiles/sdl-turing-machine.dir/display.cpp.o -c /home/alex/Repos/turing-machine-sdl/display.cpp",
+  "file": "/home/alex/Repos/turing-machine-sdl/display.cpp"
 }
 ]

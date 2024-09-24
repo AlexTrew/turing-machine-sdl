@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/sdl-turing-machine.dir/display.cpp.o"
+  "CMakeFiles/sdl-turing-machine.dir/display.cpp.o.d"
   "CMakeFiles/sdl-turing-machine.dir/main.cpp.o"
   "CMakeFiles/sdl-turing-machine.dir/main.cpp.o.d"
   "CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.o"

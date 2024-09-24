@@ -394,7 +394,8 @@ CMakeFiles/sdl-turing-machine.dir/main.cpp.o: main.cpp \
   /usr/include/c++/12/bits/stl_vector.h \
   /usr/include/c++/12/bits/stl_bvector.h \
   /usr/include/c++/12/bits/vector.tcc \
-  texture_builder.hpp \
+  display.hpp \
+  /usr/include/SDL2/SDL.h \
   turing_machine.hpp
 
 CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.o: texture_builder.cpp \
@@ -781,13 +782,13 @@ CMakeFiles/sdl-turing-machine.dir/turing_machine.cpp.o: turing_machine.cpp \
   /usr/include/assert.h
 
 
+texture_builder.hpp:
+
 /usr/include/c++/12/bits/hashtable.h:
 
 /usr/include/c++/12/unordered_map:
 
 turing_machine.hpp:
-
-texture_builder.hpp:
 
 /usr/include/c++/12/bits/stl_bvector.h:
 
@@ -918,6 +919,8 @@ texture_builder.hpp:
 /usr/include/c++/12/bits/nested_exception.h:
 
 /usr/include/c++/12/bits/cxxabi_init_exception.h:
+
+display.hpp:
 
 /usr/include/c++/12/bits/exception_ptr.h:
 

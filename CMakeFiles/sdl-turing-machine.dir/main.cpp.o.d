@@ -315,5 +315,5 @@ CMakeFiles/sdl-turing-machine.dir/main.cpp.o: \
  /usr/include/c++/12/bits/stl_vector.h \
  /usr/include/c++/12/bits/stl_bvector.h \
  /usr/include/c++/12/bits/vector.tcc \
- /home/alex/Repos/turing-machine-sdl/texture_builder.hpp \
+ /home/alex/Repos/turing-machine-sdl/display.hpp /usr/include/SDL2/SDL.h \
  /home/alex/Repos/turing-machine-sdl/turing_machine.hpp

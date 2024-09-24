@@ -129,6 +129,30 @@ sdl-turing-machine/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/build
 .PHONY : sdl-turing-machine/fast
 
+display.o: display.cpp.o
+.PHONY : display.o
+
+# target to build an object file
+display.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/display.cpp.o
+.PHONY : display.cpp.o
+
+display.i: display.cpp.i
+.PHONY : display.i
+
+# target to preprocess a source file
+display.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/display.cpp.i
+.PHONY : display.cpp.i
+
+display.s: display.cpp.s
+.PHONY : display.s
+
+# target to generate assembly for a file
+display.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/display.cpp.s
+.PHONY : display.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -210,6 +234,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... sdl-turing-machine"
+	@echo "... display.o"
+	@echo "... display.i"
+	@echo "... display.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
