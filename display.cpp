@@ -3,41 +3,56 @@
 #include <SDL_stdinc.h>
 #include <cassert>
 #include <vector>
+#include "turing_machine.hpp"
 
-void Display::process(const std::vector<char>& state,
-                      const int viewport_position_x) {
+SDL_Colour SDL_COLOUR_BLACK{0, 0, 0};
+
+SDL_Colour SDL_COLOUR_WHITE{255, 255, 255};
+
+SDL_Colour SDL_COLOUR_GREY{220, 220, 220};
+
+
+void Display::process(const TuringMachineState& state) {
+
+  int camera_position_x = state.head_index - (state.head_index % NO_OF_TILES_X);
   SDL_RenderClear(_renderer);
 
-  std::string window_start_index_str = std::to_string(window_start_index);
+  std::string window_start_index_str = std::to_string(camera_position_x);
 
   // draw the glyphs of the tape
-  for (int i = window_start_index;
-       i < std::min(window_start_index + NO_OF_TILES_X, int(tm_state.size()));
+  for (int i = camera_position_x;
+       i < std::min(camera_position_x + NO_OF_TILES_X, int(state.turing_machine_memory.size()));
        ++i) {
 
     SDL_Texture* tape_glyph_texture = get_accelerated_glyph_texture(
-        _renderer, _font, head_position, &SDL_COLOUR_BLACK);
+								    _renderer, _font, state.turing_machine_memory[i], &SDL_COLOUR_WHITE);
     display_glyph_at_screen_position(get_on_screen_position(i, 10),
                                      tape_glyph_texture);
 
     //draw the 'H' for head
   }
   SDL_Texture* head_glyph_texture =
-      get_accelerated_glyph_texture(_renderer, _font, 'H', &SDL_COLOUR_BLACK);
-  display_glyph_at_screen_position(get_screen_position(head_position, 11),
+      get_accelerated_glyph_texture(_renderer, _font, 'H', &SDL_COLOUR_WHITE);
+  display_glyph_at_screen_position(get_on_screen_position(state.head_index, 9),
                                    head_glyph_texture);
 
   // draw index info
-  display_text_at_screen_position(get_on_screen_position(0, 8), 4, 1, "index",
+  display_text_at_screen_position(get_on_screen_position(0, 12), 1, 1, "^",
                                   SDL_COLOUR_GREY);
 
-  display_text_at_screen_position(get_on_screen_position(0, 9),
+  display_text_at_screen_position(get_on_screen_position(0, 13), 4, 1, "index",
+                                  SDL_COLOUR_GREY);
+
+  display_text_at_screen_position(get_on_screen_position(0, 14),
                                   window_start_index_str.size(), 1,
                                   window_start_index_str, SDL_COLOUR_GREY);
 
+
+
+
   display_text_at_screen_position(
       get_on_screen_position(NO_OF_TILES_X / 2 - 10, 2), 15, 1,
-      "Alex's Turing machine", SDL_COLOUR_BLACK);
+      "Alex's Turing machine", SDL_COLOUR_WHITE);
 
   SDL_RenderPresent(_renderer);
   SDL_Delay(5);
@@ -98,13 +113,13 @@ Display::Display() {
     assert(false);
   }
 
-  SDL_SetRenderDrawColor(_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-
   _renderer = SDL_CreateRenderer(_window, -1, SDL_RENDERER_ACCELERATED);
   if (_renderer == nullptr) {
     printf("Error creating renderer! %s\n", SDL_GetError());
     assert(false);
   }
+
+  SDL_SetRenderDrawColor(_renderer, 0x00, 0x00, 0x00, 0x00);
 
   _font = TTF_OpenFont("Ubuntu-Regular.ttf", 15);
 }

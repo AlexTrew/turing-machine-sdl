@@ -4,8 +4,9 @@
 #include <SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <memory>
-#import <vector>
+#include <vector>
 #include "texture_builder.hpp"
+#include "state.hpp"
 
 const int X_RES = 1920;
 const int Y_RES = 1280;
@@ -15,12 +16,6 @@ const int NO_OF_TILES_Y = 48;
 
 const int TILE_WIDTH = X_RES / NO_OF_TILES_X;
 const int TILE_HEIGHT = Y_RES / NO_OF_TILES_Y;
-
-SDL_Colour SDL_COLOUR_BLACK{0, 0, 0};
-
-SDL_Colour SDL_COLOUR_WHITE{255, 255, 255};
-
-SDL_Colour SDL_COLOUR_GREY{220, 220, 220};
 
 struct ScreenPosition {
   int x;
@@ -46,7 +41,7 @@ class Display {
  public:
   Display();
   ~Display();
-  void process(const std::vector<char>& state, const int viewport_position_x);
+  void process(const TuringMachineState&);
 };
 
 #endif

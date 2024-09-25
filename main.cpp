@@ -18,20 +18,23 @@
 
 #include "display.hpp"
 #include "turing_machine.hpp"
+#include "state.hpp"
 
 void run_event_loop() {
 
   Uint64 start_time = SDL_GetTicks64();
 
-  int tape_length = 100000000;
+  int tm_mem_size = 10000;
+  int initial_head_position = tm_mem_size/2;
+  std::unique_ptr<TuringMachineState> turing_machine_state_ptr = std::unique_ptr<TuringMachineState>(new TuringMachineState(initial_head_position, tm_mem_size));
+
+  std::cout << turing_machine_state_ptr->head_index << "\n";
   std::unique_ptr<TuringMachine> turing_machine_ptr =
       std::unique_ptr<TuringMachine>(
-          new TuringMachine(tape_length, tape_length / 2));
+          new TuringMachine());
 
   std::unique_ptr<Display> display_manager_ptr =
       std::unique_ptr<Display>(new Display());
-
-  int head_position = 10;
 
   // event loop state
   bool quit = false;
@@ -50,7 +53,11 @@ void run_event_loop() {
       if (e.type == SDL_QUIT) {
         quit = true;
       }
+
     }
+    *turing_machine_state_ptr = turing_machine_ptr->process(*turing_machine_state_ptr);
+    display_manager_ptr->process(*turing_machine_state_ptr);
+
   }
 }
 

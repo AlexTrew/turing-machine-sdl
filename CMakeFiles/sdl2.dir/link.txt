@@ -1,2 +1,0 @@
-/usr/bin/ar qc libsdl2.a CMakeFiles/sdl2.dir/main.cpp.o
-/usr/bin/ranlib libsdl2.a
