@@ -1,4 +1,4 @@
-# Install script for directory: /home/alex/Projects/turing-machine-sdl
+# Install script for directory: /home/alex/Repos/turing-machine-sdl
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/alex/Projects/turing-machine-sdl/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/alex/Repos/turing-machine-sdl/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

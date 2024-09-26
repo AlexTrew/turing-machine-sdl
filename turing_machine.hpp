@@ -1,21 +1,9 @@
 #ifndef TURINGMACHINE
 #define TURINGMACHINE
-#include <vector>
 #include <memory>
+#include <vector>
 
 #include "state.hpp"
-
-enum class MoveDirection { LEFT, RIGHT };
-
-struct UpdateInstruction {
-  MoveDirection direction;
-  char new_value = '0';
-
-  UpdateInstruction(MoveDirection direction, int new_value){
-    this->direction = direction;
-    this->new_value = new_value;
-  }
-};
 
 class TuringMachine {
 
@@ -23,10 +11,9 @@ class TuringMachine {
       const TuringMachineState& state);
 
  public:
-
-  UpdateInstruction* get_update_instruction(TuringMachineState& state); 
+  const UpdateInstruction& get_update_instruction(TuringMachineState& state,
+                                                  char read_char);
 
   TuringMachineState& process(TuringMachineState& state);
-
 };
 #endif
