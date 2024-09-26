@@ -1,0 +1,3 @@
+/home/alex/Projects/turing-machine-sdl/CMakeFiles/sdl-turing-machine.dir
+/home/alex/Projects/turing-machine-sdl/CMakeFiles/edit_cache.dir
+/home/alex/Projects/turing-machine-sdl/CMakeFiles/rebuild_cache.dir

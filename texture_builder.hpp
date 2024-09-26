@@ -3,7 +3,6 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
-#include <SDL_render.h>
 #include <string>
 SDL_Texture* get_accelerated_glyph_texture(SDL_Renderer* renderer,
                                            TTF_Font* font, Uint32 glyph_char,

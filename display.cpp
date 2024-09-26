@@ -1,6 +1,5 @@
 #include "display.hpp"
 #include <SDL2/SDL_image.h>
-#include <SDL_stdinc.h>
 #include <cassert>
 #include <vector>
 #include "turing_machine.hpp"
@@ -55,7 +54,7 @@ void Display::process(const TuringMachineState& state) {
       "Alex's Turing machine", SDL_COLOUR_WHITE);
 
   SDL_RenderPresent(_renderer);
-  SDL_Delay(5);
+  SDL_Delay(20);
 }
 
 std::unique_ptr<ScreenPosition> Display::get_on_screen_position(
@@ -121,7 +120,7 @@ Display::Display() {
 
   SDL_SetRenderDrawColor(_renderer, 0x00, 0x00, 0x00, 0x00);
 
-  _font = TTF_OpenFont("Ubuntu-Regular.ttf", 15);
+  _font = TTF_OpenFont("Ubuntu-Regular.ttf", 1000);
 }
 
 Display::~Display() {

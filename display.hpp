@@ -1,10 +1,10 @@
 #ifndef DISPLAY
 #define DISPLAY
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <memory>
-#include <vector>
+
 #include "texture_builder.hpp"
 #include "state.hpp"
 

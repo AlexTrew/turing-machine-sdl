@@ -1,7 +1,6 @@
 #include "turing_machine.hpp"
 #include <cassert>
 #include <memory>
-#include <iostream>
 
 
 UpdateInstruction* TuringMachine::get_update_instruction(TuringMachineState& state) {
