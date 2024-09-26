@@ -1,1 +1,0 @@
-/usr/bin/c++ "CMakeFiles/sdl-turing-machine.dir/main.cpp.o" "CMakeFiles/sdl-turing-machine.dir/turing_machine.cpp.o" "CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.o" "CMakeFiles/sdl-turing-machine.dir/display.cpp.o" -o sdl-turing-machine  -lSDL2 -lSDL2_image -lSDL2 -lSDL2_ttf -lSDL2 -lSDL2_image -lSDL2_ttf 
