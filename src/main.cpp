@@ -1,17 +1,19 @@
 #include <SDL2/SDL.h>
+#include <iostream>
 #include <memory>
+#include <ostream>
 
-#include "turing_machine_fsm.hpp"
 #include "display.hpp"
 #include "state.hpp"
 #include "turing_machine.hpp"
+#include "turing_machine_fsm.hpp"
 
 void run_event_loop() {
 
   Uint64 start_time = SDL_GetTicks64();
 
   int tm_mem_size = 64;
-  int initial_head_position = 0;
+  int initial_head_position = 1;
   std::unique_ptr<TuringMachineState> turing_machine_state_ptr =
       std::unique_ptr<TuringMachineState>(
           new TuringMachineState(initial_head_position, tm_mem_size));
@@ -19,9 +21,6 @@ void run_event_loop() {
   std::unique_ptr<TuringMachineFSMStateSpace> fsm_state_space =
       std::unique_ptr<TuringMachineFSMStateSpace>(
           new TuringMachineFSMStateSpace);
-
-  std::unique_ptr<TuringMachineFSM> fsm =
-      std::unique_ptr<TuringMachineFSM>(new TuringMachineFSM);
 
   std::unique_ptr<TuringMachine> turing_machine_ptr =
       std::unique_ptr<TuringMachine>(new TuringMachine());
@@ -45,9 +44,8 @@ void run_event_loop() {
       }
     }
 
-    *turing_machine_state_ptr =
-        turing_machine_ptr->process(*turing_machine_state_ptr);
-    display_manager_ptr->process(*turing_machine_state_ptr);
+    turing_machine_ptr->process(turing_machine_state_ptr);
+    display_manager_ptr->process(turing_machine_state_ptr);
   }
 }
 

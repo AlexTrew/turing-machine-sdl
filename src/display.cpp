@@ -1,6 +1,7 @@
 #include "display.hpp"
 #include <SDL2/SDL_image.h>
 #include <cassert>
+#include <memory>
 #include <string>
 #include <vector>
 #include "turing_machine.hpp"
@@ -11,19 +12,21 @@ SDL_Colour SDL_COLOUR_WHITE{255, 255, 255};
 
 SDL_Colour SDL_COLOUR_GREY{220, 220, 220};
 
-void Display::process(const TuringMachineState& state) {
+void Display::process(const std::unique_ptr<TuringMachineState>& state_ptr) {
 
-  int camera_position_x = state.head_index - (state.head_index % NO_OF_TILES_X);
+  int camera_position_x =
+      state_ptr->head_index - (state_ptr->head_index % NO_OF_TILES_X);
   SDL_RenderClear(_renderer);
 
   // draw the glyphs of the tape
   for (int i = camera_position_x;
        i < std::min(camera_position_x + NO_OF_TILES_X,
-                    int(state.turing_machine_memory.size()));
+                    int(state_ptr->turing_machine_memory.size()));
        ++i) {
 
     SDL_Texture* tape_glyph_texture = get_accelerated_glyph_texture(
-        _renderer, _font, state.turing_machine_memory[i], &SDL_COLOUR_WHITE);
+        _renderer, _font, state_ptr->turing_machine_memory[i],
+        &SDL_COLOUR_WHITE);
     display_glyph_at_screen_position(get_on_screen_position(i, 10),
                                      tape_glyph_texture);
 
@@ -31,15 +34,15 @@ void Display::process(const TuringMachineState& state) {
   }
   SDL_Texture* head_glyph_texture =
       get_accelerated_glyph_texture(_renderer, _font, 'H', &SDL_COLOUR_WHITE);
-  display_glyph_at_screen_position(get_on_screen_position(state.head_index, 9),
-                                   head_glyph_texture);
+  display_glyph_at_screen_position(
+      get_on_screen_position(state_ptr->head_index, 9), head_glyph_texture);
 
   // draw index info
 
   display_text_at_screen_position(get_on_screen_position(0, 13), 4, 1, "index",
                                   SDL_COLOUR_GREY);
 
-  std::string head_index_str = std::to_string(state.head_index);
+  std::string head_index_str = std::to_string(state_ptr->head_index);
   display_text_at_screen_position(get_on_screen_position(0, 14),
                                   head_index_str.size(), 1, head_index_str,
                                   SDL_COLOUR_GREY);

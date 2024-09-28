@@ -5,8 +5,8 @@
 #include <SDL2/SDL_ttf.h>
 #include <memory>
 
-#include "texture_builder.hpp"
 #include "state.hpp"
+#include "texture_builder.hpp"
 
 const int X_RES = 1920;
 const int Y_RES = 1280;
@@ -41,7 +41,7 @@ class Display {
  public:
   Display();
   ~Display();
-  void process(const TuringMachineState&);
+  void process(const std::unique_ptr<TuringMachineState>& state_ptr);
 };
 
 #endif

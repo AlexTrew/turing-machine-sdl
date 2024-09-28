@@ -129,101 +129,125 @@ sdl-turing-machine/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/build
 .PHONY : sdl-turing-machine/fast
 
-display.o: display.cpp.o
-.PHONY : display.o
+src/display.o: src/display.cpp.o
+.PHONY : src/display.o
 
 # target to build an object file
-display.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/display.cpp.o
-.PHONY : display.cpp.o
+src/display.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/display.cpp.o
+.PHONY : src/display.cpp.o
 
-display.i: display.cpp.i
-.PHONY : display.i
+src/display.i: src/display.cpp.i
+.PHONY : src/display.i
 
 # target to preprocess a source file
-display.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/display.cpp.i
-.PHONY : display.cpp.i
+src/display.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/display.cpp.i
+.PHONY : src/display.cpp.i
 
-display.s: display.cpp.s
-.PHONY : display.s
+src/display.s: src/display.cpp.s
+.PHONY : src/display.s
 
 # target to generate assembly for a file
-display.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/display.cpp.s
-.PHONY : display.cpp.s
+src/display.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/display.cpp.s
+.PHONY : src/display.cpp.s
 
-main.o: main.cpp.o
-.PHONY : main.o
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/main.cpp.o
-.PHONY : main.cpp.o
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/main.cpp.i
-.PHONY : main.cpp.i
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/main.cpp.s
-.PHONY : main.cpp.s
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
-texture_builder.o: texture_builder.cpp.o
-.PHONY : texture_builder.o
+src/texture_builder.o: src/texture_builder.cpp.o
+.PHONY : src/texture_builder.o
 
 # target to build an object file
-texture_builder.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.o
-.PHONY : texture_builder.cpp.o
+src/texture_builder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/texture_builder.cpp.o
+.PHONY : src/texture_builder.cpp.o
 
-texture_builder.i: texture_builder.cpp.i
-.PHONY : texture_builder.i
+src/texture_builder.i: src/texture_builder.cpp.i
+.PHONY : src/texture_builder.i
 
 # target to preprocess a source file
-texture_builder.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.i
-.PHONY : texture_builder.cpp.i
+src/texture_builder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/texture_builder.cpp.i
+.PHONY : src/texture_builder.cpp.i
 
-texture_builder.s: texture_builder.cpp.s
-.PHONY : texture_builder.s
+src/texture_builder.s: src/texture_builder.cpp.s
+.PHONY : src/texture_builder.s
 
 # target to generate assembly for a file
-texture_builder.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/texture_builder.cpp.s
-.PHONY : texture_builder.cpp.s
+src/texture_builder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/texture_builder.cpp.s
+.PHONY : src/texture_builder.cpp.s
 
-turing_machine.o: turing_machine.cpp.o
-.PHONY : turing_machine.o
+src/turing_machine.o: src/turing_machine.cpp.o
+.PHONY : src/turing_machine.o
 
 # target to build an object file
-turing_machine.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/turing_machine.cpp.o
-.PHONY : turing_machine.cpp.o
+src/turing_machine.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/turing_machine.cpp.o
+.PHONY : src/turing_machine.cpp.o
 
-turing_machine.i: turing_machine.cpp.i
-.PHONY : turing_machine.i
+src/turing_machine.i: src/turing_machine.cpp.i
+.PHONY : src/turing_machine.i
 
 # target to preprocess a source file
-turing_machine.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/turing_machine.cpp.i
-.PHONY : turing_machine.cpp.i
+src/turing_machine.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/turing_machine.cpp.i
+.PHONY : src/turing_machine.cpp.i
 
-turing_machine.s: turing_machine.cpp.s
-.PHONY : turing_machine.s
+src/turing_machine.s: src/turing_machine.cpp.s
+.PHONY : src/turing_machine.s
 
 # target to generate assembly for a file
-turing_machine.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/turing_machine.cpp.s
-.PHONY : turing_machine.cpp.s
+src/turing_machine.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/turing_machine.cpp.s
+.PHONY : src/turing_machine.cpp.s
+
+src/turing_machine_fsm.o: src/turing_machine_fsm.cpp.o
+.PHONY : src/turing_machine_fsm.o
+
+# target to build an object file
+src/turing_machine_fsm.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/turing_machine_fsm.cpp.o
+.PHONY : src/turing_machine_fsm.cpp.o
+
+src/turing_machine_fsm.i: src/turing_machine_fsm.cpp.i
+.PHONY : src/turing_machine_fsm.i
+
+# target to preprocess a source file
+src/turing_machine_fsm.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/turing_machine_fsm.cpp.i
+.PHONY : src/turing_machine_fsm.cpp.i
+
+src/turing_machine_fsm.s: src/turing_machine_fsm.cpp.s
+.PHONY : src/turing_machine_fsm.s
+
+# target to generate assembly for a file
+src/turing_machine_fsm.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/turing_machine_fsm.cpp.s
+.PHONY : src/turing_machine_fsm.cpp.s
 
 # Help Target
 help:
@@ -234,18 +258,21 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... sdl-turing-machine"
-	@echo "... display.o"
-	@echo "... display.i"
-	@echo "... display.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
-	@echo "... texture_builder.o"
-	@echo "... texture_builder.i"
-	@echo "... texture_builder.s"
-	@echo "... turing_machine.o"
-	@echo "... turing_machine.i"
-	@echo "... turing_machine.s"
+	@echo "... src/display.o"
+	@echo "... src/display.i"
+	@echo "... src/display.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
+	@echo "... src/texture_builder.o"
+	@echo "... src/texture_builder.i"
+	@echo "... src/texture_builder.s"
+	@echo "... src/turing_machine.o"
+	@echo "... src/turing_machine.i"
+	@echo "... src/turing_machine.s"
+	@echo "... src/turing_machine_fsm.o"
+	@echo "... src/turing_machine_fsm.i"
+	@echo "... src/turing_machine_fsm.s"
 .PHONY : help
 
 
