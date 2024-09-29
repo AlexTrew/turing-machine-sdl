@@ -1,7 +1,3 @@
-#include <SDL_render.h>
-#include <SDL_stdinc.h>
-#include <SDL_surface.h>
-#include <SDL_ttf.h>
 #include <stdio.h>
 #include <cassert>
 #include <string>

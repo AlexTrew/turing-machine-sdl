@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.25.1)
 
+set(CMAKE_BUILD_TYPE=RelWithDebInfo)
+
 project(sdl-turing-machine)
 
 find_package(SDL2 REQUIRED)
@@ -7,7 +9,6 @@ find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})
 
 file(GLOB SOURCES src/*)
-
 
 add_executable(sdl-turing-machine ${SOURCES})
 

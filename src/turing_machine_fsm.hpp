@@ -23,62 +23,65 @@ struct TuringMachineFSMState {
       read_char_x_behaviour_instruction = {};
 };
 
-class TuringMachineFSMStateSpace {
- public:
+struct TuringMachineFSMStateSpace {
   int current_state_id = 0;
-  std::map<int, TuringMachineFSMState> id_x_fsm_state = {};
+  std::map<int, std::shared_ptr<TuringMachineFSMState>> id_x_fsm_state_ptr = {};
+
   TuringMachineFSMStateSpace() {
-    TuringMachineFSMState state_0 = TuringMachineFSMState();
+    // this is where the rules and states are hard coded until the
+    // ui element for is implemented
 
-    state_0.read_char_x_behaviour_instruction = {
-        {'#', std::shared_ptr<TuringMachineUpdate>(
-                  new TuringMachineUpdate(MoveDirection::RIGHT, '0', 1))},
-        {'0', std::shared_ptr<TuringMachineUpdate>(
-                  new TuringMachineUpdate(MoveDirection::LEFT, '0', 0))},
-        {'1', std::shared_ptr<TuringMachineUpdate>(
-                  new TuringMachineUpdate(MoveDirection::LEFT, '1', 0))},
+    std::shared_ptr<TuringMachineFSMState> state_0_ptr =
+        std::make_shared<TuringMachineFSMState>(TuringMachineFSMState());
+
+    state_0_ptr->read_char_x_behaviour_instruction = {
+        {'#', std::make_shared<TuringMachineUpdate>(
+                  TuringMachineUpdate(MoveDirection::LEFT, '#', 1))},
+        {'0', std::make_shared<TuringMachineUpdate>(
+                  TuringMachineUpdate(MoveDirection::RIGHT, '0', 0))},
+        {'1', std::make_shared<TuringMachineUpdate>(
+                  TuringMachineUpdate(MoveDirection::RIGHT, '1', 0))},
     };
 
-    id_x_fsm_state[0] = state_0;
+    id_x_fsm_state_ptr[0] = state_0_ptr;
 
-    TuringMachineFSMState state_1 = TuringMachineFSMState();
+    std::shared_ptr<TuringMachineFSMState> state_1_ptr =
+        std::make_shared<TuringMachineFSMState>(TuringMachineFSMState());
 
-    state_1.read_char_x_behaviour_instruction = {
-        {'#', std::shared_ptr<TuringMachineUpdate>(
-                  new TuringMachineUpdate(MoveDirection::LEFT, '1', 2))},
-        {'0', std::shared_ptr<TuringMachineUpdate>(
-                  new TuringMachineUpdate(MoveDirection::RIGHT, '1', 2))},
-        {'1', std::shared_ptr<TuringMachineUpdate>(
-                  new TuringMachineUpdate(MoveDirection::RIGHT, '0', 1))},
+    state_1_ptr->read_char_x_behaviour_instruction = {
+        {'#', std::make_shared<TuringMachineUpdate>(
+                  TuringMachineUpdate(MoveDirection::LEFT, '1', -1))},
+        {'0', std::make_shared<TuringMachineUpdate>(
+                  TuringMachineUpdate(MoveDirection::LEFT, '1', -1))},
+        {'1', std::make_shared<TuringMachineUpdate>(
+                  TuringMachineUpdate(MoveDirection::LEFT, '0', 1))},
     };
 
-    id_x_fsm_state[1] = state_1;
+    id_x_fsm_state_ptr[1] = state_1_ptr;
 
-    TuringMachineFSMState state_2 = TuringMachineFSMState();
+    std::shared_ptr<TuringMachineFSMState> state_stop_ptr =
+        std::shared_ptr<TuringMachineFSMState>(new TuringMachineFSMState());
 
-    state_2.read_char_x_behaviour_instruction = {
-        {'#', std::shared_ptr<TuringMachineUpdate>(
-                  new TuringMachineUpdate(MoveDirection::RIGHT, '1', -1))},
-        {'0', std::shared_ptr<TuringMachineUpdate>(
-                  new TuringMachineUpdate(MoveDirection::LEFT, '0', 2))},
-        {'1', std::shared_ptr<TuringMachineUpdate>(
-                  new TuringMachineUpdate(MoveDirection::LEFT, '1', 2))},
+    state_stop_ptr->read_char_x_behaviour_instruction = {
+        {'#', std::make_shared<TuringMachineUpdate>(
+                  TuringMachineUpdate(MoveDirection::NONE, '#', -1))},
+        {'0', std::make_shared<TuringMachineUpdate>(
+                  TuringMachineUpdate(MoveDirection::NONE, '0', -1))},
+        {'1', std::make_shared<TuringMachineUpdate>(
+                  TuringMachineUpdate(MoveDirection::NONE, '1', -1))},
     };
 
-    id_x_fsm_state[2] = state_2;
-
-    TuringMachineFSMState state_stop = TuringMachineFSMState();
-    id_x_fsm_state[-1] = state_stop;
+    id_x_fsm_state_ptr[-1] = state_stop_ptr;
   };
 };
 
 class TuringMachineFSM {
-  std::shared_ptr<TuringMachineFSMStateSpace> _state_space;
+  std::unique_ptr<TuringMachineFSMStateSpace> _state_space;
 
  public:
   TuringMachineFSM() {
-    _state_space = std::unique_ptr<TuringMachineFSMStateSpace>(
-        new TuringMachineFSMStateSpace);
+    _state_space = std::make_unique<TuringMachineFSMStateSpace>(
+        TuringMachineFSMStateSpace());
   }
   std::shared_ptr<TuringMachineUpdate> run(char input);
 };

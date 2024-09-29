@@ -11,7 +11,7 @@ class TuringMachine {
 
  public:
   TuringMachine() {
-    _fsm = std::unique_ptr<TuringMachineFSM>(new TuringMachineFSM);
+    _fsm = std::unique_ptr<TuringMachineFSM>(new TuringMachineFSM());
   }
   void process(std::unique_ptr<TuringMachineState>& state_ptr);
 };

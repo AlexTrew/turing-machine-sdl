@@ -1,4 +1,5 @@
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_events.h>
 #include <iostream>
 #include <memory>
 #include <ostream>
@@ -10,17 +11,11 @@
 
 void run_event_loop() {
 
-  Uint64 start_time = SDL_GetTicks64();
-
   int tm_mem_size = 64;
-  int initial_head_position = 1;
+  int initial_head_position = 2;
   std::unique_ptr<TuringMachineState> turing_machine_state_ptr =
       std::unique_ptr<TuringMachineState>(
           new TuringMachineState(initial_head_position, tm_mem_size));
-
-  std::unique_ptr<TuringMachineFSMStateSpace> fsm_state_space =
-      std::unique_ptr<TuringMachineFSMStateSpace>(
-          new TuringMachineFSMStateSpace);
 
   std::unique_ptr<TuringMachine> turing_machine_ptr =
       std::unique_ptr<TuringMachine>(new TuringMachine());
@@ -29,23 +24,27 @@ void run_event_loop() {
       std::unique_ptr<Display>(new Display());
 
   bool quit = false;
+  bool started = false;
   SDL_Event e;
 
-  Uint64 loop_run_time = 0;
-  Uint64 frames = 0;
+  display_manager_ptr->process(turing_machine_state_ptr);
 
   while (!quit) {
-    ++frames;
-    loop_run_time = SDL_GetTicks64() - start_time;
     while (SDL_PollEvent(&e) != 0) {
       //user requests quit
-      if (e.type == SDL_QUIT) {
-        quit = true;
+      switch (e.type) {
+        case SDL_QUIT:
+          quit = true;
+          break;
+        case SDL_KEYDOWN:
+          started = true;
       }
     }
 
-    turing_machine_ptr->process(turing_machine_state_ptr);
-    display_manager_ptr->process(turing_machine_state_ptr);
+    if (started) {
+      turing_machine_ptr->process(turing_machine_state_ptr);
+      display_manager_ptr->process(turing_machine_state_ptr);
+    }
   }
 }
 
