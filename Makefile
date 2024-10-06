@@ -177,6 +177,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/table.o: src/table.cpp.o
+.PHONY : src/table.o
+
+# target to build an object file
+src/table.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/table.cpp.o
+.PHONY : src/table.cpp.o
+
+src/table.i: src/table.cpp.i
+.PHONY : src/table.i
+
+# target to preprocess a source file
+src/table.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/table.cpp.i
+.PHONY : src/table.cpp.i
+
+src/table.s: src/table.cpp.s
+.PHONY : src/table.s
+
+# target to generate assembly for a file
+src/table.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/table.cpp.s
+.PHONY : src/table.cpp.s
+
 src/texture_builder.o: src/texture_builder.cpp.o
 .PHONY : src/texture_builder.o
 
@@ -264,6 +288,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/table.o"
+	@echo "... src/table.i"
+	@echo "... src/table.s"
 	@echo "... src/texture_builder.o"
 	@echo "... src/texture_builder.i"
 	@echo "... src/texture_builder.s"
