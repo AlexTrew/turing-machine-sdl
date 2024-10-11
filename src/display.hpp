@@ -31,8 +31,8 @@ class Display {
   TTF_Font* _font = nullptr;
 
   void display_glyph_at_screen_position(
-      std::shared_ptr<ScreenPosition> screen_position_ptr,
-      SDL_Texture* glyph_texture);
+      std::shared_ptr<ScreenPosition> screen_position, char glyph_char,
+      Colour fg_colour);
 
   void display_text_at_screen_position(
       std::shared_ptr<ScreenPosition> screen_position_ptr, int grid_w,

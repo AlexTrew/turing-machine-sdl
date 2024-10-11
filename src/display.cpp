@@ -22,18 +22,16 @@ void Display::process(const std::unique_ptr<TuringMachineState>& state_ptr) {
                     int(state_ptr->turing_machine_memory.size()));
        ++i) {
 
-    SDL_Texture* tape_glyph_texture = get_accelerated_glyph_texture(
-        _renderer, _font, state_ptr->turing_machine_memory[i], Colour::WHITE);
     std::shared_ptr<ScreenPosition> glyph_screen_position =
         convert_world_position_to_on_screen_position(i, 10);
-    display_glyph_at_screen_position(glyph_screen_position, tape_glyph_texture);
+    display_glyph_at_screen_position(glyph_screen_position,
+                                     state_ptr->turing_machine_memory[i],
+                                     Colour::WHITE);
   }
 
   std::shared_ptr<ScreenPosition> head_glyph_position =
       convert_world_position_to_on_screen_position(state_ptr->head_index, 9);
-  SDL_Texture* head_glyph_texture =
-      get_accelerated_glyph_texture(_renderer, _font, 'H', Colour::WHITE);
-  display_glyph_at_screen_position(head_glyph_position, head_glyph_texture);
+  display_glyph_at_screen_position(head_glyph_position, 'H', Colour::WHITE);
 
   // draw index info
   std::shared_ptr<ScreenPosition> index_screen_position =
@@ -88,9 +86,11 @@ void Display::display_text_at_screen_position(
 }
 
 void Display::display_glyph_at_screen_position(
-    std::shared_ptr<ScreenPosition> screen_position,
-    SDL_Texture* glyph_texture) {
-  // todo: this should also call the function to build the texture
+    std::shared_ptr<ScreenPosition> screen_position, char glyph_char,
+    Colour fg_colour) {
+
+  SDL_Texture* glyph_texture =
+      get_accelerated_glyph_texture(_renderer, _font, glyph_char, fg_colour);
 
   SDL_Rect tile = {screen_position->x * TILE_WIDTH,
                    screen_position->y * TILE_HEIGHT, TILE_WIDTH, TILE_HEIGHT};

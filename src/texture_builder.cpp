@@ -6,6 +6,7 @@
 #include "colour.hpp"
 #include "texture_builder.hpp"
 
+// todo use shared pointes in the caches
 std::unordered_map<Uint32, SDL_Texture*> glyph_texture_cache = {};
 std::unordered_map<std::string, SDL_Texture*> text_texture_cache = {};
 
