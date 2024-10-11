@@ -5,8 +5,10 @@
 #include <SDL2/SDL_ttf.h>
 #include <memory>
 
+#include "colour.hpp"
 #include "state.hpp"
 #include "texture_builder.hpp"
+#include "ui.hpp"
 
 const int X_RES = 1920;
 const int Y_RES = 1280;
@@ -34,7 +36,7 @@ class Display {
 
   void display_text_at_screen_position(
       std::shared_ptr<ScreenPosition> screen_position_ptr, int grid_w,
-      int grid_h, std::string text_to_display, SDL_Colour colour);
+      int grid_h, std::string text_to_display, Colour colour);
 
   void display_table_at_screen_position(
       std::shared_ptr<ScreenPosition> screen_position, int grid_w, int grid_h,

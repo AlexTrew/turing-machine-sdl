@@ -129,6 +129,30 @@ sdl-turing-machine/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/build
 .PHONY : sdl-turing-machine/fast
 
+src/colour.o: src/colour.cpp.o
+.PHONY : src/colour.o
+
+# target to build an object file
+src/colour.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/colour.cpp.o
+.PHONY : src/colour.cpp.o
+
+src/colour.i: src/colour.cpp.i
+.PHONY : src/colour.i
+
+# target to preprocess a source file
+src/colour.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/colour.cpp.i
+.PHONY : src/colour.cpp.i
+
+src/colour.s: src/colour.cpp.s
+.PHONY : src/colour.s
+
+# target to generate assembly for a file
+src/colour.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/colour.cpp.s
+.PHONY : src/colour.cpp.s
+
 src/display.o: src/display.cpp.o
 .PHONY : src/display.o
 
@@ -176,30 +200,6 @@ src/main.s: src/main.cpp.s
 src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
-
-src/table.o: src/table.cpp.o
-.PHONY : src/table.o
-
-# target to build an object file
-src/table.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/table.cpp.o
-.PHONY : src/table.cpp.o
-
-src/table.i: src/table.cpp.i
-.PHONY : src/table.i
-
-# target to preprocess a source file
-src/table.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/table.cpp.i
-.PHONY : src/table.cpp.i
-
-src/table.s: src/table.cpp.s
-.PHONY : src/table.s
-
-# target to generate assembly for a file
-src/table.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/table.cpp.s
-.PHONY : src/table.cpp.s
 
 src/texture_builder.o: src/texture_builder.cpp.o
 .PHONY : src/texture_builder.o
@@ -273,6 +273,30 @@ src/turing_machine_fsm.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/turing_machine_fsm.cpp.s
 .PHONY : src/turing_machine_fsm.cpp.s
 
+src/ui.o: src/ui.cpp.o
+.PHONY : src/ui.o
+
+# target to build an object file
+src/ui.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/ui.cpp.o
+.PHONY : src/ui.cpp.o
+
+src/ui.i: src/ui.cpp.i
+.PHONY : src/ui.i
+
+# target to preprocess a source file
+src/ui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/ui.cpp.i
+.PHONY : src/ui.cpp.i
+
+src/ui.s: src/ui.cpp.s
+.PHONY : src/ui.s
+
+# target to generate assembly for a file
+src/ui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/ui.cpp.s
+.PHONY : src/ui.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -282,15 +306,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... sdl-turing-machine"
+	@echo "... src/colour.o"
+	@echo "... src/colour.i"
+	@echo "... src/colour.s"
 	@echo "... src/display.o"
 	@echo "... src/display.i"
 	@echo "... src/display.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/table.o"
-	@echo "... src/table.i"
-	@echo "... src/table.s"
 	@echo "... src/texture_builder.o"
 	@echo "... src/texture_builder.i"
 	@echo "... src/texture_builder.s"
@@ -300,6 +324,9 @@ help:
 	@echo "... src/turing_machine_fsm.o"
 	@echo "... src/turing_machine_fsm.i"
 	@echo "... src/turing_machine_fsm.s"
+	@echo "... src/ui.o"
+	@echo "... src/ui.i"
+	@echo "... src/ui.s"
 .PHONY : help
 
 

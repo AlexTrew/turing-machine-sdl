@@ -3,6 +3,7 @@
 #include <string>
 #include <unordered_map>
 
+#include "colour.hpp"
 #include "texture_builder.hpp"
 
 std::unordered_map<Uint32, SDL_Texture*> glyph_texture_cache = {};
@@ -21,7 +22,7 @@ SDL_Texture* build_accelerated_texture(SDL_Renderer* renderer,
 }
 SDL_Texture* get_accelerated_glyph_texture(SDL_Renderer* renderer,
                                            TTF_Font* font, Uint32 glyph_char,
-                                           SDL_Colour* foreground_colour) {
+                                           Colour foreground_colour) {
 
   // See if the glyph cache contains the glyph texture we want. If present, simply return it
   if (glyph_texture_cache.find(glyph_char) != glyph_texture_cache.end()) {
@@ -29,8 +30,8 @@ SDL_Texture* get_accelerated_glyph_texture(SDL_Renderer* renderer,
   }
 
   // load the glyph character to a surface
-  SDL_Surface* glyph_surface =
-      TTF_RenderGlyph32_Solid(font, glyph_char, *foreground_colour);
+  SDL_Surface* glyph_surface = TTF_RenderGlyph32_Solid(
+      font, glyph_char, lookup_sdl_colour(foreground_colour));
 
   if (glyph_surface == nullptr) {
     printf("Error loading surface for glyph \"%c\"", glyph_char);
@@ -51,15 +52,15 @@ SDL_Texture* get_accelerated_glyph_texture(SDL_Renderer* renderer,
 
 SDL_Texture* get_accelerated_text_texture(SDL_Renderer* renderer,
                                           TTF_Font* font, std::string text,
-                                          SDL_Colour* foreground_colour) {
+                                          Colour foreground_colour) {
   // See if the texture cache contains the string texture we want. If present, simply return it
   if (text_texture_cache.find(text) != text_texture_cache.end()) {
     return text_texture_cache[text];
   }
 
   // load the string to a surface
-  SDL_Surface* text_surface =
-      TTF_RenderText_Solid(font, text.c_str(), *foreground_colour);
+  SDL_Surface* text_surface = TTF_RenderText_Solid(
+      font, text.c_str(), lookup_sdl_colour(foreground_colour));
 
   if (text_surface == nullptr) {
     printf("Error loading surface for text \"%s\"", text.c_str());
