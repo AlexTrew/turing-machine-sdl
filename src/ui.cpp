@@ -5,19 +5,22 @@
 #include "colour.hpp"
 #include "texture_builder.hpp"
 
-void draw_gui_panel_element(
+void draw_gui_button(
     const std::shared_ptr<GuiPanelElement>& gui_panel_element_ptr,
     TTF_Font* label_font, SDL_Renderer* renderer) {
-  SDL_Rect element_rect;
-  element_rect.x = gui_panel_element_ptr->x_pos;
-  element_rect.y = gui_panel_element_ptr->x_pos;
-  element_rect.w = gui_panel_element_ptr->size_x;
-  element_rect.h = gui_panel_element_ptr->size_y;
+  SDL_Rect button_rect;
+  button_rect.x = gui_panel_element_ptr->x_pos;
+  button_rect.y = gui_panel_element_ptr->y_pos;
+  button_rect.w = gui_panel_element_ptr->size_x;
+  button_rect.h = gui_panel_element_ptr->size_y;
+
+  SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+  SDL_RenderDrawRect(renderer, &button_rect);
+  SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 
   SDL_Texture* label_texture = get_accelerated_text_texture(
       renderer, label_font, gui_panel_element_ptr->label, Colour::WHITE);
-  SDL_RenderDrawRect(renderer, &element_rect);
-  SDL_RenderCopy(renderer, label_texture, nullptr, &element_rect);
+  SDL_RenderCopy(renderer, label_texture, nullptr, &button_rect);
 }
 
 void draw_gui_panel(const std::shared_ptr<GuiPanel>& gui_panel_ptr,
@@ -41,8 +44,8 @@ void draw_gui_panel(const std::shared_ptr<GuiPanel>& gui_panel_ptr,
   SDL_RenderGetViewport(renderer, &previous_viewport);
 
   SDL_RenderSetViewport(renderer, &panel_rect);
-  for (std::shared_ptr<GuiPanelElement> element_ptr : gui_panel_ptr->elements) {
-    draw_gui_panel_element(element_ptr, label_font, renderer);
+  for (std::shared_ptr<Button> button_ptr : gui_panel_ptr->buttons) {
+    draw_gui_button(button_ptr, label_font, renderer);
   }
 
   // reset the viewport

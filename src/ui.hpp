@@ -20,6 +20,8 @@ struct GuiPanelElement {
   int size_y = 0;
 };
 
+struct Button : public GuiPanelElement {};
+
 struct TableColumn {
   std::string name = "";
   std::string value = "";
@@ -45,7 +47,8 @@ struct GuiPanel {
   int size_y = 0;
   int screen_x_pos = 0;
   int screen_y_pos = 0;
-  std::vector<std::shared_ptr<GuiPanelElement>> elements = {};
+  std::vector<std::shared_ptr<Table>> tables = {};
+  std::vector<std::shared_ptr<Button>> buttons = {};
 };
 
 void draw_gui(const std::vector<std::shared_ptr<GuiPanel>>& gui_panels,
