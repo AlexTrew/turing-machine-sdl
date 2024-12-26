@@ -1,7 +1,5 @@
 #include "colour.hpp"
 #include <SDL2/SDL_pixels.h>
-#include <sys/types.h>
-#include <exception>
 #include <unordered_map>
 
 std::unordered_map<Colour, SDL_Colour> colour_lookup = {

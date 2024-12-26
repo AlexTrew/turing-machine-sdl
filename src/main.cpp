@@ -8,6 +8,8 @@
 #include "state.hpp"
 #include "turing_machine.hpp"
 #include "turing_machine_fsm.hpp"
+#include "ui_input.hpp"
+#include "ui_state.hpp"
 
 void run_event_loop() {
 
@@ -23,11 +25,17 @@ void run_event_loop() {
   std::unique_ptr<Display> display_manager_ptr =
       std::unique_ptr<Display>(new Display());
 
+  std::unique_ptr<UIState> ui_state_ptr = std::unique_ptr<UIState>(new UIState);
+
+  std::unique_ptr<UIManager> ui_manager_ptr =
+      std::unique_ptr<UIManager>(new UIManager);
+
   bool quit = false;
   bool started = false;
   SDL_Event e;
 
-  display_manager_ptr->process(turing_machine_state_ptr);
+  ui_manager_ptr->initialise_ui(ui_state_ptr);
+  display_manager_ptr->process(turing_machine_state_ptr, ui_state_ptr);
 
   while (!quit) {
     while (SDL_PollEvent(&e) != 0) {
@@ -38,12 +46,15 @@ void run_event_loop() {
           break;
         case SDL_KEYDOWN:
           started = true;
+        case SDL_MOUSEBUTTONDOWN:
+          ui_manager_ptr->handle_mouse_click(e.motion.x, e.motion.y,
+                                             ui_state_ptr->ui_panels);
       }
     }
 
     if (started) {
       turing_machine_ptr->process(turing_machine_state_ptr);
-      display_manager_ptr->process(turing_machine_state_ptr);
+      display_manager_ptr->process(turing_machine_state_ptr, ui_state_ptr);
     }
   }
 }

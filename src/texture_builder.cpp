@@ -29,7 +29,6 @@ SDL_Texture* get_accelerated_glyph_texture(SDL_Renderer* renderer,
   if (glyph_texture_cache.find(glyph_char) != glyph_texture_cache.end()) {
     return glyph_texture_cache[glyph_char];
   }
-
   // load the glyph character to a surface
   SDL_Surface* glyph_surface = TTF_RenderGlyph32_Solid(
       font, glyph_char, lookup_sdl_colour(foreground_colour));
@@ -54,6 +53,10 @@ SDL_Texture* get_accelerated_glyph_texture(SDL_Renderer* renderer,
 SDL_Texture* get_accelerated_text_texture(SDL_Renderer* renderer,
                                           TTF_Font* font, std::string text,
                                           Colour foreground_colour) {
+  if (text == "") {
+    return nullptr;
+  }
+
   // See if the texture cache contains the string texture we want. If present, simply return it
   if (text_texture_cache.find(text) != text_texture_cache.end()) {
     return text_texture_cache[text];
@@ -64,7 +67,8 @@ SDL_Texture* get_accelerated_text_texture(SDL_Renderer* renderer,
       font, text.c_str(), lookup_sdl_colour(foreground_colour));
 
   if (text_surface == nullptr) {
-    printf("Error loading surface for text \"%s\"", text.c_str());
+    printf("Error loading surface for text \"%s\"\n", text.c_str());
+    fflush(stdout);
     assert(false);
   }
 

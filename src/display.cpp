@@ -9,28 +9,29 @@
 #include "colour.hpp"
 #include "turing_machine.hpp"
 #include "turing_ui_def.hpp"
+#include "ui_state.hpp"
 
-void Display::process(const std::unique_ptr<TuringMachineState>& state_ptr) {
-
+void Display::process(const std::unique_ptr<TuringMachineState>& tm_state_ptr,
+                      const std::unique_ptr<UIState>& ui_state_ptr) {
   int camera_position_x =
-      state_ptr->head_index - (state_ptr->head_index % NO_OF_TILES_X);
+      tm_state_ptr->head_index - (tm_state_ptr->head_index % NO_OF_TILES_X);
   SDL_RenderClear(_renderer);
 
   // draw the glyphs of the tape
   for (int i = camera_position_x;
        i < std::min(camera_position_x + NO_OF_TILES_X,
-                    int(state_ptr->turing_machine_memory.size()));
+                    int(tm_state_ptr->turing_machine_memory.size()));
        ++i) {
 
     std::shared_ptr<ScreenPosition> glyph_screen_position =
         convert_world_position_to_on_screen_position(i, 10);
     display_glyph_at_screen_position(glyph_screen_position,
-                                     state_ptr->turing_machine_memory[i],
+                                     tm_state_ptr->turing_machine_memory[i],
                                      Colour::WHITE);
   }
 
   std::shared_ptr<ScreenPosition> head_glyph_position =
-      convert_world_position_to_on_screen_position(state_ptr->head_index, 9);
+      convert_world_position_to_on_screen_position(tm_state_ptr->head_index, 9);
   display_glyph_at_screen_position(head_glyph_position, 'H', Colour::WHITE);
 
   // draw index info
@@ -39,7 +40,7 @@ void Display::process(const std::unique_ptr<TuringMachineState>& state_ptr) {
   display_text_at_screen_position(index_screen_position, 4, 1, "index",
                                   Colour::GREY);
 
-  std::string head_index_str = std::to_string(state_ptr->head_index);
+  std::string head_index_str = std::to_string(tm_state_ptr->head_index);
   std::shared_ptr<ScreenPosition> head_index_text_position =
       convert_world_position_to_on_screen_position(0, 14);
 
@@ -52,11 +53,7 @@ void Display::process(const std::unique_ptr<TuringMachineState>& state_ptr) {
   display_text_at_screen_position(title_text_screen_position, 15, 1,
                                   "Alex's Turing machine", Colour::WHITE);
 
-  //draw input table
-  std::vector<std::shared_ptr<GuiPanel>> ui_panels =
-      build_turing_machine_ui_definition();
-
-  draw_gui(ui_panels, _font, _renderer);
+  draw_gui(ui_state_ptr->ui_panels, _font, _renderer);
 
   SDL_RenderPresent(_renderer);
   SDL_Delay(60);

@@ -5,9 +5,8 @@
 #include "colour.hpp"
 #include "texture_builder.hpp"
 
-void draw_gui_button(
-    const std::shared_ptr<GuiPanelElement>& gui_panel_element_ptr,
-    TTF_Font* label_font, SDL_Renderer* renderer) {
+void draw_gui_button(const std::shared_ptr<Button>& gui_panel_element_ptr,
+                     TTF_Font* label_font, SDL_Renderer* renderer) {
   SDL_Rect button_rect;
   button_rect.x = gui_panel_element_ptr->x_pos;
   button_rect.y = gui_panel_element_ptr->y_pos;
@@ -44,7 +43,7 @@ void draw_gui_panel(const std::shared_ptr<GuiPanel>& gui_panel_ptr,
   SDL_RenderGetViewport(renderer, &previous_viewport);
 
   SDL_RenderSetViewport(renderer, &panel_rect);
-  for (std::shared_ptr<Button> button_ptr : gui_panel_ptr->buttons) {
+  for (std::shared_ptr<Button>& button_ptr : gui_panel_ptr->buttons) {
     draw_gui_button(button_ptr, label_font, renderer);
   }
 

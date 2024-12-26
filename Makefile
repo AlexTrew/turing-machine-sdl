@@ -129,6 +129,30 @@ sdl-turing-machine/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/build
 .PHONY : sdl-turing-machine/fast
 
+src/build_turing_machine_ui_definition.o: src/build_turing_machine_ui_definition.cpp.o
+.PHONY : src/build_turing_machine_ui_definition.o
+
+# target to build an object file
+src/build_turing_machine_ui_definition.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/build_turing_machine_ui_definition.cpp.o
+.PHONY : src/build_turing_machine_ui_definition.cpp.o
+
+src/build_turing_machine_ui_definition.i: src/build_turing_machine_ui_definition.cpp.i
+.PHONY : src/build_turing_machine_ui_definition.i
+
+# target to preprocess a source file
+src/build_turing_machine_ui_definition.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/build_turing_machine_ui_definition.cpp.i
+.PHONY : src/build_turing_machine_ui_definition.cpp.i
+
+src/build_turing_machine_ui_definition.s: src/build_turing_machine_ui_definition.cpp.s
+.PHONY : src/build_turing_machine_ui_definition.s
+
+# target to generate assembly for a file
+src/build_turing_machine_ui_definition.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/build_turing_machine_ui_definition.cpp.s
+.PHONY : src/build_turing_machine_ui_definition.cpp.s
+
 src/colour.o: src/colour.cpp.o
 .PHONY : src/colour.o
 
@@ -297,6 +321,54 @@ src/ui.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/ui.cpp.s
 .PHONY : src/ui.cpp.s
 
+src/ui_input.o: src/ui_input.cpp.o
+.PHONY : src/ui_input.o
+
+# target to build an object file
+src/ui_input.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/ui_input.cpp.o
+.PHONY : src/ui_input.cpp.o
+
+src/ui_input.i: src/ui_input.cpp.i
+.PHONY : src/ui_input.i
+
+# target to preprocess a source file
+src/ui_input.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/ui_input.cpp.i
+.PHONY : src/ui_input.cpp.i
+
+src/ui_input.s: src/ui_input.cpp.s
+.PHONY : src/ui_input.s
+
+# target to generate assembly for a file
+src/ui_input.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/ui_input.cpp.s
+.PHONY : src/ui_input.cpp.s
+
+src/ui_state.o: src/ui_state.cpp.o
+.PHONY : src/ui_state.o
+
+# target to build an object file
+src/ui_state.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/ui_state.cpp.o
+.PHONY : src/ui_state.cpp.o
+
+src/ui_state.i: src/ui_state.cpp.i
+.PHONY : src/ui_state.i
+
+# target to preprocess a source file
+src/ui_state.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/ui_state.cpp.i
+.PHONY : src/ui_state.cpp.i
+
+src/ui_state.s: src/ui_state.cpp.s
+.PHONY : src/ui_state.s
+
+# target to generate assembly for a file
+src/ui_state.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/ui_state.cpp.s
+.PHONY : src/ui_state.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -306,6 +378,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... sdl-turing-machine"
+	@echo "... src/build_turing_machine_ui_definition.o"
+	@echo "... src/build_turing_machine_ui_definition.i"
+	@echo "... src/build_turing_machine_ui_definition.s"
 	@echo "... src/colour.o"
 	@echo "... src/colour.i"
 	@echo "... src/colour.s"
@@ -327,6 +402,12 @@ help:
 	@echo "... src/ui.o"
 	@echo "... src/ui.i"
 	@echo "... src/ui.s"
+	@echo "... src/ui_input.o"
+	@echo "... src/ui_input.i"
+	@echo "... src/ui_input.s"
+	@echo "... src/ui_state.o"
+	@echo "... src/ui_state.i"
+	@echo "... src/ui_state.s"
 .PHONY : help
 
 
