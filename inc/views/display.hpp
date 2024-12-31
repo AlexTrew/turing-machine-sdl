@@ -5,12 +5,12 @@
 #include <SDL2/SDL_ttf.h>
 #include <memory>
 
-#include "headers/models/state.hpp"
-#include "headers/models/ui_state.hpp"
-#include "headers/util/colour.hpp"
-#include "headers/views/cfg.hpp"
-#include "headers/views/texture_builder.hpp"
-#include "headers/views/ui.hpp"
+#include "inc/models/state.hpp"
+#include "inc/models/ui_state.hpp"
+#include "inc/util/colour.hpp"
+#include "inc/views/cfg.hpp"
+#include "inc/views/texture_builder.hpp"
+#include "inc/views/ui.hpp"
 
 struct ScreenPosition {
   int x;

@@ -1,4 +1,4 @@
-#include "headers/views/display.hpp"
+#include "inc/views/display.hpp"
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_rect.h>
 #include <SDL2/SDL_render.h>
@@ -6,10 +6,10 @@
 #include <memory>
 #include <string>
 #include <vector>
-#include "headers/controllers/turing_machine.hpp"
-#include "headers/models/ui_state.hpp"
-#include "headers/util/colour.hpp"
-#include "headers/views/turing_ui_def.hpp"
+#include "inc/controllers/turing_machine.hpp"
+#include "inc/models/ui_state.hpp"
+#include "inc/util/colour.hpp"
+#include "inc/views/turing_ui_def.hpp"
 
 void Display::process(const std::unique_ptr<TuringMachineState>& tm_state_ptr,
                       const std::unique_ptr<UIState>& ui_state_ptr) {

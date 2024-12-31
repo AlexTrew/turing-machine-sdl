@@ -4,12 +4,12 @@
 #include <memory>
 #include <ostream>
 
-#include "headers/controllers/turing_machine.hpp"
-#include "headers/controllers/ui_input.hpp"
-#include "headers/models/state.hpp"
-#include "headers/models/turing_machine_fsm.hpp"
-#include "headers/models/ui_state.hpp"
-#include "headers/views/display.hpp"
+#include "inc/controllers/turing_machine.hpp"
+#include "inc/controllers/ui_input.hpp"
+#include "inc/models/state.hpp"
+#include "inc/models/turing_machine_fsm.hpp"
+#include "inc/models/ui_state.hpp"
+#include "inc/views/display.hpp"
 
 void run_event_loop() {
 

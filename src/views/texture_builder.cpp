@@ -3,8 +3,8 @@
 #include <string>
 #include <unordered_map>
 
-#include "headers/util/colour.hpp"
-#include "headers/views/texture_builder.hpp"
+#include "inc/util/colour.hpp"
+#include "inc/views/texture_builder.hpp"
 
 // todo use shared pointes in the caches
 std::unordered_map<Uint32, SDL_Texture*> glyph_texture_cache = {};

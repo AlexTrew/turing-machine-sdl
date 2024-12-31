@@ -3,8 +3,8 @@
 #include <memory>
 #include <vector>
 
-#include "headers/models/state.hpp"
-#include "headers/models/turing_machine_fsm.hpp"
+#include "inc/models/state.hpp"
+#include "inc/models/turing_machine_fsm.hpp"
 
 class TuringMachine {
   std::unique_ptr<TuringMachineFSM> _fsm;

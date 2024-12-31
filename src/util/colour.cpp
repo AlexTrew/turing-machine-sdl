@@ -1,4 +1,4 @@
-#include "headers/util/colour.hpp"
+#include "inc/util/colour.hpp"
 #include <SDL2/SDL_pixels.h>
 #include <unordered_map>
 

@@ -2,7 +2,7 @@
 #define TURING_UI_DEF
 #include <memory>
 #include <vector>
-#include "headers/views/display.hpp"
+#include "inc/views/display.hpp"
 #include "ui.hpp"
 
 std::vector<std::shared_ptr<GuiPanel>> build_turing_machine_ui_definition();

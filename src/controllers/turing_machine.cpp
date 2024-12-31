@@ -1,7 +1,7 @@
-#include "headers/controllers/turing_machine.hpp"
+#include "inc/controllers/turing_machine.hpp"
 #include <cassert>
 #include <memory>
-#include "headers/models/state.hpp"
+#include "inc/models/state.hpp"
 
 void TuringMachine::process(std::unique_ptr<TuringMachineState>& state_ptr) {
 

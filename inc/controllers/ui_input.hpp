@@ -2,10 +2,10 @@
 #define UI_INPUT
 #include <memory>
 #include <vector>
-#include "headers/models/ui_state.hpp"
-#include "headers/views/cfg.hpp"
-#include "headers/views/display.hpp"
-#include "headers/views/ui.hpp"
+#include "inc/models/ui_state.hpp"
+#include "inc/views/cfg.hpp"
+#include "inc/views/display.hpp"
+#include "inc/views/ui.hpp"
 
 class UIManager {
 

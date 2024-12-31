@@ -1,9 +1,9 @@
-#include "headers/views/ui.hpp"
+#include "inc/views/ui.hpp"
 #include <SDL2/SDL_render.h>
 #include <SDL2/SDL_ttf.h>
 #include <memory>
-#include "headers/util/colour.hpp"
-#include "headers/views/texture_builder.hpp"
+#include "inc/util/colour.hpp"
+#include "inc/views/texture_builder.hpp"
 
 void draw_gui_button(const std::shared_ptr<Button>& gui_panel_element_ptr,
                      TTF_Font* label_font, SDL_Renderer* renderer) {

@@ -1,11 +1,11 @@
-#include "headers/controllers/ui_input.hpp"
+#include "inc/controllers/ui_input.hpp"
 #include <math.h>
 #include <cmath>
 #include <iostream>
 #include <memory>
-#include "headers/views/display.hpp"
-#include "headers/views/turing_ui_def.hpp"
-#include "headers/views/ui.hpp"
+#include "inc/views/display.hpp"
+#include "inc/views/turing_ui_def.hpp"
+#include "inc/views/ui.hpp"
 
 void UIManager::initialise_ui(std::unique_ptr<UIState>& ui_state) {
   ui_state->ui_panels = build_turing_machine_ui_definition();

@@ -1,4 +1,4 @@
-#include "headers/models/turing_machine_fsm.hpp"
+#include "inc/models/turing_machine_fsm.hpp"
 #include <iostream>
 #include <memory>
 
