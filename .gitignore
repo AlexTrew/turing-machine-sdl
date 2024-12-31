@@ -1,3 +1,6 @@
 CMakeFiles
 CMakeCache.txt
 sdl-turing-machine
+.cache/
+.clang-format
+compile-commands.json
