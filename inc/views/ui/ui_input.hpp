@@ -5,7 +5,7 @@
 #include "inc/models/ui_state.hpp"
 #include "inc/views/cfg.hpp"
 #include "inc/views/display.hpp"
-#include "inc/views/ui.hpp"
+#include "inc/views/ui/ui.hpp"
 
 class UIManager {
 

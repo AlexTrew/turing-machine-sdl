@@ -14,7 +14,7 @@ add_executable(sdl-turing-machine main.cpp)
 set_target_properties(sdl-turing-machine PROPERTIES LINKER_LANGUAGE CXX)
 
 # I use globs because I am lazy 
-file(GLOB INC inc/models/*.hpp inc/views/*.hpp inc/controllers/*.hpp inc/util/*.hpp)
+file(GLOB INC inc/models/*.hpp inc/views/*.hpp inc/views/ui/*.hpp inc/controllers/*.hpp inc/util/*.hpp)
 file(GLOB SOURCES src/models/*.cpp src/views/*.cpp  src/views/ui/*.cpp src/controllers/*.cpp src/util/*.cpp)
 
 TARGET_SOURCES(sdl-turing-machine PUBLIC ${INC} PRIVATE ${SOURCES})

@@ -5,11 +5,11 @@
 #include <ostream>
 
 #include "inc/controllers/turing_machine.hpp"
-#include "inc/controllers/ui_input.hpp"
 #include "inc/models/state.hpp"
 #include "inc/models/turing_machine_fsm.hpp"
 #include "inc/models/ui_state.hpp"
 #include "inc/views/display.hpp"
+#include "inc/views/ui/ui_input.hpp"
 
 void run_event_loop() {
 

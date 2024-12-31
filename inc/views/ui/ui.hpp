@@ -7,7 +7,7 @@
 #include <memory>
 #include <string>
 #include <vector>
-#include "cfg.hpp"
+#include "inc/views/cfg.hpp"
 
 struct GuiPanelElement {
   std::string label = "";

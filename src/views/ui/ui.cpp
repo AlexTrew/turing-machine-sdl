@@ -1,4 +1,4 @@
-#include "inc/views/ui.hpp"
+#include "inc/views/ui/ui.hpp"
 #include <SDL2/SDL_render.h>
 #include <SDL2/SDL_ttf.h>
 #include <memory>

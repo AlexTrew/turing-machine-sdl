@@ -9,7 +9,7 @@
 #include "inc/controllers/turing_machine.hpp"
 #include "inc/models/ui_state.hpp"
 #include "inc/util/colour.hpp"
-#include "inc/views/turing_ui_def.hpp"
+#include "inc/views/ui/turing_ui_def.hpp"
 
 void Display::process(const std::unique_ptr<TuringMachineState>& tm_state_ptr,
                       const std::unique_ptr<UIState>& ui_state_ptr) {

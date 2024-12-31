@@ -10,7 +10,7 @@
 #include "inc/util/colour.hpp"
 #include "inc/views/cfg.hpp"
 #include "inc/views/texture_builder.hpp"
-#include "inc/views/ui.hpp"
+#include "inc/views/ui/ui.hpp"
 
 struct ScreenPosition {
   int x;

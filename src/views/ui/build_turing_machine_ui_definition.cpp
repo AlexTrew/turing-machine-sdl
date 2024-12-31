@@ -1,4 +1,4 @@
-#include "inc/views/turing_ui_def.hpp"
+#include "inc/views/ui/turing_ui_def.hpp"
 
 std::vector<std::shared_ptr<GuiPanel>> build_turing_machine_ui_definition() {
 

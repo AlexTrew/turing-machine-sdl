@@ -369,6 +369,30 @@ src/views/ui/ui.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/views/ui/ui.cpp.s
 .PHONY : src/views/ui/ui.cpp.s
 
+src/views/ui/ui_input.o: src/views/ui/ui_input.cpp.o
+.PHONY : src/views/ui/ui_input.o
+
+# target to build an object file
+src/views/ui/ui_input.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/views/ui/ui_input.cpp.o
+.PHONY : src/views/ui/ui_input.cpp.o
+
+src/views/ui/ui_input.i: src/views/ui/ui_input.cpp.i
+.PHONY : src/views/ui/ui_input.i
+
+# target to preprocess a source file
+src/views/ui/ui_input.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/views/ui/ui_input.cpp.i
+.PHONY : src/views/ui/ui_input.cpp.i
+
+src/views/ui/ui_input.s: src/views/ui/ui_input.cpp.s
+.PHONY : src/views/ui/ui_input.s
+
+# target to generate assembly for a file
+src/views/ui/ui_input.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/views/ui/ui_input.cpp.s
+.PHONY : src/views/ui/ui_input.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -408,6 +432,9 @@ help:
 	@echo "... src/views/ui/ui.o"
 	@echo "... src/views/ui/ui.i"
 	@echo "... src/views/ui/ui.s"
+	@echo "... src/views/ui/ui_input.o"
+	@echo "... src/views/ui/ui_input.i"
+	@echo "... src/views/ui/ui_input.s"
 .PHONY : help
 
 
