@@ -3,5 +3,5 @@ CMakeCache.txt
 sdl-turing-machine
 .cache/
 .clang-format
-compile-commands.json
+compile_commands.json
 cmake_install.cmake
