@@ -177,30 +177,6 @@ src/controllers/turing_machine.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/controllers/turing_machine.cpp.s
 .PHONY : src/controllers/turing_machine.cpp.s
 
-src/controllers/ui_input.o: src/controllers/ui_input.cpp.o
-.PHONY : src/controllers/ui_input.o
-
-# target to build an object file
-src/controllers/ui_input.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/controllers/ui_input.cpp.o
-.PHONY : src/controllers/ui_input.cpp.o
-
-src/controllers/ui_input.i: src/controllers/ui_input.cpp.i
-.PHONY : src/controllers/ui_input.i
-
-# target to preprocess a source file
-src/controllers/ui_input.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/controllers/ui_input.cpp.i
-.PHONY : src/controllers/ui_input.cpp.i
-
-src/controllers/ui_input.s: src/controllers/ui_input.cpp.s
-.PHONY : src/controllers/ui_input.s
-
-# target to generate assembly for a file
-src/controllers/ui_input.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-turing-machine.dir/build.make CMakeFiles/sdl-turing-machine.dir/src/controllers/ui_input.cpp.s
-.PHONY : src/controllers/ui_input.cpp.s
-
 src/models/turing_machine_fsm.o: src/models/turing_machine_fsm.cpp.o
 .PHONY : src/models/turing_machine_fsm.o
 
@@ -408,9 +384,6 @@ help:
 	@echo "... src/controllers/turing_machine.o"
 	@echo "... src/controllers/turing_machine.i"
 	@echo "... src/controllers/turing_machine.s"
-	@echo "... src/controllers/ui_input.o"
-	@echo "... src/controllers/ui_input.i"
-	@echo "... src/controllers/ui_input.s"
 	@echo "... src/models/turing_machine_fsm.o"
 	@echo "... src/models/turing_machine_fsm.i"
 	@echo "... src/models/turing_machine_fsm.s"

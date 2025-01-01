@@ -25,10 +25,10 @@ void run_event_loop() {
   std::unique_ptr<Display> display_manager_ptr =
       std::unique_ptr<Display>(new Display());
 
-  std::unique_ptr<UIState> ui_state_ptr = std::unique_ptr<UIState>(new UIState);
+  std::unique_ptr<UIState> ui_state_ptr = std::unique_ptr<UIState>(new UIState());
 
   std::unique_ptr<UIManager> ui_manager_ptr =
-      std::unique_ptr<UIManager>(new UIManager);
+    std::unique_ptr<UIManager>(new UIManager());
 
   bool quit = false;
   bool started = false;
